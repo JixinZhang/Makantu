@@ -33,7 +33,6 @@
 
 - 缺少参数，提示**"Missing parameter"**
 - 该用户名已注册，提示**"username exists"**
-- 密码长度不在6-20个字符之内，提示**"Password length must be in [6,20]"**
 
 # 登录 #
 /user/login
@@ -82,3 +81,13 @@
 
 **返回格式**
 
+请求成功：应返回如下信息  
+{
+"status":"1",
+"data":{
+"user_id":"1",
+"username":"testProject",
+"avator":"图片的URL"
+},
+"message":"Update success"
+}
