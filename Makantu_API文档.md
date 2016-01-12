@@ -11,7 +11,7 @@
 
 提交参数：<font color = "red">（本文档除图片数据之外均应提交NSString类型）</font>
  
-- username (参考示例：username = testProject)
+- userName (参考示例：userName = testProject)
 - password (参考示例：password = 1q2w3e)
 
 **返回格式：**
@@ -23,7 +23,7 @@
 "status":1,  
 "data":{  
 "user_id":"1",  
-"username":"testProject"  
+"userName":"testProject"  
 },  
 "message":"register success"  
 }
@@ -32,7 +32,7 @@
 相关的提示有：
 
 - 缺少参数，提示**"Missing parameter"**
-- 该用户名已注册，提示**"username exists"**
+- 该用户名已注册，提示**"userName exists"**
 
 # 登录 #
 /user/login
@@ -43,7 +43,7 @@
 
 提交参数：
 
-- username (参考示例：username = testProject)
+- userName (参考示例：userName = testProject)
 - password (参考示例：password = 1q2w3e)
 
 **返回格式：**
@@ -53,7 +53,7 @@
 "status":"1",
 "data":{
 "user_id":"1",
-"username":"testProject",
+"userName":"testProject",
 "avator":"头像的URL"
 },
 "message":"Login success"
@@ -86,7 +86,7 @@
 "status":"1",
 "data":{
 "user_id":"1",
-"username":"testProject",
+"userName":"testProject",
 "avator":"图片的URL"
 },
 "message":"Update success"
