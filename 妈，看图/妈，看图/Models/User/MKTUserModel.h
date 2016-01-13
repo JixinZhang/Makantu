@@ -13,5 +13,7 @@
 @property (nonatomic,copy) NSString *userName;
 @property (nonatomic,copy) NSString *user_id;
 @property (nonatomic,copy) NSString *password;
+@property (nonatomic,copy) NSString *avatorURL;
+@property (nonatomic,copy) NSString *authCode;
 
 @end

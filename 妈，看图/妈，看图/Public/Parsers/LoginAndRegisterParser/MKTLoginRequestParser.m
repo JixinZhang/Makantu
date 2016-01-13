@@ -19,10 +19,7 @@
         id data = [dictionary valueForKey:@"data"];
         if ([[data class]  isSubclassOfClass:[NSDictionary class]]) {
             
-            id user_id = [data valueForKey:@"id"];
-            if ([[user_id class] isSubclassOfClass:[NSString class]]) {
-                user.user_id = user_id;
-            }
+            user.user_id = [data valueForKey:@"id"];
             
             id userName = [data valueForKey:@"userName"];
             if ([[userName class] isSubclassOfClass:[NSString class]]) {
@@ -32,6 +29,16 @@
             id password = [data valueForKey:@"password"];
             if ([[password class] isSubclassOfClass:[NSString class]]) {
                 user.password = password;
+            }
+            
+            id avatorURL = [data valueForKey:@"avator"];
+            if ([[avatorURL class] isSubclassOfClass:[NSString class]]) {
+                user.avatorURL = avatorURL;
+            }
+            
+            id authCode = [data valueForKey:@"authCode"];
+            if ([[authCode class] isSubclassOfClass:[NSString class]]) {
+                user.authCode = authCode;
             }
         }
         

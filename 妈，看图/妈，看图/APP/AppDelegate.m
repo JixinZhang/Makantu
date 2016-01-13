@@ -9,9 +9,13 @@
 #import "AppDelegate.h"
 #import "MKTLoginViewController.h"
 #import "MKTBrowseOrPublicVC.h"
-@interface AppDelegate ()
+#import "MKTPublicPhotoVC.h"
+#import "MKTMyViewController.h"
 
-@property (nonatomic,strong) MKTLoginViewController *loginVC;
+@interface AppDelegate ()<UINavigationBarDelegate,UIAlertViewDelegate>
+
+@property (nonatomic, strong) MKTLoginViewController *loginVC;
+@property (nonatomic, strong) UITabBarController *tabBarController;
 
 @end
 
@@ -23,6 +27,58 @@
     self.loginVC = [storyboard instantiateViewControllerWithIdentifier:@"LoginStoryboard"];
     self.window.rootViewController = self.loginVC;
 }
+
+- (void)loadPublishPhotoView:(UIViewController *)viewController
+{
+    MKTPublicPhotoVC *publicPhotoVC = [[MKTPublicPhotoVC alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:publicPhotoVC];
+    
+    nav.tabBarItem.title = @"已共享";
+    
+    
+    
+    UIStoryboard *myStoryboard = [UIStoryboard storyboardWithName:@"MKTMy" bundle:[NSBundle mainBundle]];
+    MKTMyViewController *myVC = [myStoryboard instantiateViewControllerWithIdentifier:@"MyStoryboard"];
+    
+    myVC.tabBarItem.title = @"我";
+    myVC.tabBarItem.image = [UIImage imageNamed:@"my"];
+    
+    
+    self.tabBarController = [[UITabBarController alloc] init];
+    self.tabBarController.viewControllers = @[nav,myVC];
+    
+    
+    [viewController presentViewController:self.tabBarController animated:YES completion:nil];
+    
+    
+    UIButton *photoButton = [[UIButton alloc]initWithFrame:CGRectMake(self.window.frame.size.width/2-60, -25, 120, 50)];
+    [photoButton setImage:[UIImage imageNamed:@"publish"] forState:UIControlStateNormal];
+    [photoButton addTarget:self action:@selector(photoButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.tabBarController.tabBar addSubview:photoButton];
+    
+}
+
+- (void)photoButtonClicked
+{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *fromPicker = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"选择拍照");
+    }];
+    
+    UIAlertAction *fromLibrary = [UIAlertAction actionWithTitle:@"图库" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSLog(@"选择图库");
+    }];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    
+    [alertController addAction:fromPicker];
+    [alertController addAction:fromLibrary];
+    [alertController addAction:cancelAction];
+    
+    [self.tabBarController presentViewController:alertController animated:YES completion:nil];
+}
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
@@ -36,6 +92,10 @@
     [self.window makeKeyAndVisible];
     return YES;
 }
+
+
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

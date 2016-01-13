@@ -19,10 +19,14 @@
 		786598451C45F736003C7679 /* MKTRegisterRequestParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 786598441C45F736003C7679 /* MKTRegisterRequestParser.m */; };
 		786598481C462CD8003C7679 /* MKTUserModel+Login.m in Sources */ = {isa = PBXBuildFile; fileRef = 786598471C462CD8003C7679 /* MKTUserModel+Login.m */; };
 		7865984B1C462D54003C7679 /* MKTUserModel+Register.m in Sources */ = {isa = PBXBuildFile; fileRef = 7865984A1C462D54003C7679 /* MKTUserModel+Register.m */; };
+		7865985D1C4648D3003C7679 /* MKTMy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7865985C1C4648D3003C7679 /* MKTMy.storyboard */; };
+		7865986B1C465538003C7679 /* MKTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 786598611C465538003C7679 /* MKTLoginViewController.m */; };
+		7865986C1C465538003C7679 /* MKTRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 786598631C465538003C7679 /* MKTRegisterViewController.m */; };
+		7865986E1C465538003C7679 /* MKTPublicPhotoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 786598691C465538003C7679 /* MKTPublicPhotoVC.m */; };
+		786598711C465911003C7679 /* MKTMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 786598701C465911003C7679 /* MKTMyViewController.m */; };
 		787FC55D1C4402240049A618 /* MKTBrowseOrPublicVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 787FC55C1C4402240049A618 /* MKTBrowseOrPublicVC.m */; };
 		787FC55F1C44047B0049A618 /* mainResource.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 787FC55E1C44047B0049A618 /* mainResource.xcassets */; };
-		78BAFA3D1C43A9B600F7C631 /* MKTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78BAFA3C1C43A9B600F7C631 /* MKTLoginViewController.m */; };
-		78BAFA401C43A9D000F7C631 /* MKTRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78BAFA3F1C43A9D000F7C631 /* MKTRegisterViewController.m */; };
+		78CF857F1C46999000EFB7C2 /* MKTAuthCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78CF857E1C46999000EFB7C2 /* MKTAuthCodeViewController.m */; };
 		78D2511C1C44C8D400CCDCE3 /* BLMultipartForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 78D2511B1C44C8D400CCDCE3 /* BLMultipartForm.m */; };
 		78D251201C44CE8800CCDCE3 /* MKTUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 78D2511F1C44CE8800CCDCE3 /* MKTUserModel.m */; };
 		78D251241C44D01500CCDCE3 /* MKTLoginRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 78D251231C44D01500CCDCE3 /* MKTLoginRequest.m */; };
@@ -70,13 +74,20 @@
 		786598471C462CD8003C7679 /* MKTUserModel+Login.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKTUserModel+Login.m"; sourceTree = "<group>"; };
 		786598491C462D54003C7679 /* MKTUserModel+Register.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKTUserModel+Register.h"; sourceTree = "<group>"; };
 		7865984A1C462D54003C7679 /* MKTUserModel+Register.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKTUserModel+Register.m"; sourceTree = "<group>"; };
+		7865985C1C4648D3003C7679 /* MKTMy.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MKTMy.storyboard; sourceTree = "<group>"; };
+		786598601C465538003C7679 /* MKTLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTLoginViewController.h; sourceTree = "<group>"; };
+		786598611C465538003C7679 /* MKTLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTLoginViewController.m; sourceTree = "<group>"; };
+		786598621C465538003C7679 /* MKTRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTRegisterViewController.h; sourceTree = "<group>"; };
+		786598631C465538003C7679 /* MKTRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTRegisterViewController.m; sourceTree = "<group>"; };
+		786598681C465538003C7679 /* MKTPublicPhotoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTPublicPhotoVC.h; sourceTree = "<group>"; };
+		786598691C465538003C7679 /* MKTPublicPhotoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTPublicPhotoVC.m; sourceTree = "<group>"; };
+		7865986F1C465911003C7679 /* MKTMyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTMyViewController.h; sourceTree = "<group>"; };
+		786598701C465911003C7679 /* MKTMyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTMyViewController.m; sourceTree = "<group>"; };
 		787FC55B1C4402240049A618 /* MKTBrowseOrPublicVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTBrowseOrPublicVC.h; sourceTree = "<group>"; };
 		787FC55C1C4402240049A618 /* MKTBrowseOrPublicVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTBrowseOrPublicVC.m; sourceTree = "<group>"; };
 		787FC55E1C44047B0049A618 /* mainResource.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = mainResource.xcassets; sourceTree = "<group>"; };
-		78BAFA3B1C43A9B600F7C631 /* MKTLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTLoginViewController.h; sourceTree = "<group>"; };
-		78BAFA3C1C43A9B600F7C631 /* MKTLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTLoginViewController.m; sourceTree = "<group>"; };
-		78BAFA3E1C43A9D000F7C631 /* MKTRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTRegisterViewController.h; sourceTree = "<group>"; };
-		78BAFA3F1C43A9D000F7C631 /* MKTRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTRegisterViewController.m; sourceTree = "<group>"; };
+		78CF857D1C46999000EFB7C2 /* MKTAuthCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTAuthCodeViewController.h; sourceTree = "<group>"; };
+		78CF857E1C46999000EFB7C2 /* MKTAuthCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTAuthCodeViewController.m; sourceTree = "<group>"; };
 		78D2511A1C44C8D400CCDCE3 /* BLMultipartForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLMultipartForm.h; sourceTree = "<group>"; };
 		78D2511B1C44C8D400CCDCE3 /* BLMultipartForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLMultipartForm.m; sourceTree = "<group>"; };
 		78D2511E1C44CE8800CCDCE3 /* MKTUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTUserModel.h; sourceTree = "<group>"; };
@@ -192,8 +203,8 @@
 		780FE7871C3FD15300EB9091 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7865985E1C465538003C7679 /* PublishPhoto */,
 				78BAFA391C43A99A00F7C631 /* BrowsePhoto */,
-				78BAFA3A1C43A99A00F7C631 /* PublicPhoto */,
 				787FC55B1C4402240049A618 /* MKTBrowseOrPublicVC.h */,
 				787FC55C1C4402240049A618 /* MKTBrowseOrPublicVC.m */,
 			);
@@ -262,8 +273,58 @@
 			isa = PBXGroup;
 			children = (
 				780FE7951C3FD3A300EB9091 /* MKTLoginAndRegister.storyboard */,
+				7865985C1C4648D3003C7679 /* MKTMy.storyboard */,
 			);
 			path = PublishPhoto;
+			sourceTree = "<group>";
+		};
+		7865985E1C465538003C7679 /* PublishPhoto */ = {
+			isa = PBXGroup;
+			children = (
+				7865985F1C465538003C7679 /* LoginAndRegister */,
+				786598641C465538003C7679 /* My */,
+				786598671C465538003C7679 /* PublicPhoto */,
+				7865986A1C465538003C7679 /* UploadPhoto */,
+			);
+			path = PublishPhoto;
+			sourceTree = "<group>";
+		};
+		7865985F1C465538003C7679 /* LoginAndRegister */ = {
+			isa = PBXGroup;
+			children = (
+				786598601C465538003C7679 /* MKTLoginViewController.h */,
+				786598611C465538003C7679 /* MKTLoginViewController.m */,
+				786598621C465538003C7679 /* MKTRegisterViewController.h */,
+				786598631C465538003C7679 /* MKTRegisterViewController.m */,
+			);
+			path = LoginAndRegister;
+			sourceTree = "<group>";
+		};
+		786598641C465538003C7679 /* My */ = {
+			isa = PBXGroup;
+			children = (
+				7865986F1C465911003C7679 /* MKTMyViewController.h */,
+				786598701C465911003C7679 /* MKTMyViewController.m */,
+				78CF857D1C46999000EFB7C2 /* MKTAuthCodeViewController.h */,
+				78CF857E1C46999000EFB7C2 /* MKTAuthCodeViewController.m */,
+			);
+			path = My;
+			sourceTree = "<group>";
+		};
+		786598671C465538003C7679 /* PublicPhoto */ = {
+			isa = PBXGroup;
+			children = (
+				786598681C465538003C7679 /* MKTPublicPhotoVC.h */,
+				786598691C465538003C7679 /* MKTPublicPhotoVC.m */,
+			);
+			path = PublicPhoto;
+			sourceTree = "<group>";
+		};
+		7865986A1C465538003C7679 /* UploadPhoto */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UploadPhoto;
 			sourceTree = "<group>";
 		};
 		78BAFA391C43A99A00F7C631 /* BrowsePhoto */ = {
@@ -271,17 +332,6 @@
 			children = (
 			);
 			path = BrowsePhoto;
-			sourceTree = "<group>";
-		};
-		78BAFA3A1C43A99A00F7C631 /* PublicPhoto */ = {
-			isa = PBXGroup;
-			children = (
-				78BAFA3B1C43A9B600F7C631 /* MKTLoginViewController.h */,
-				78BAFA3C1C43A9B600F7C631 /* MKTLoginViewController.m */,
-				78BAFA3E1C43A9D000F7C631 /* MKTRegisterViewController.h */,
-				78BAFA3F1C43A9D000F7C631 /* MKTRegisterViewController.m */,
-			);
-			path = PublicPhoto;
 			sourceTree = "<group>";
 		};
 		78D251141C44C58D00CCDCE3 /* Parsers */ = {
@@ -471,6 +521,7 @@
 				780FE7961C3FD3A300EB9091 /* MKTLoginAndRegister.storyboard in Resources */,
 				780FE7611C3FD00B00EB9091 /* LaunchScreen.storyboard in Resources */,
 				787FC55F1C44047B0049A618 /* mainResource.xcassets in Resources */,
+				7865985D1C4648D3003C7679 /* MKTMy.storyboard in Resources */,
 				780FE75E1C3FD00B00EB9091 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -545,17 +596,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				7865984B1C462D54003C7679 /* MKTUserModel+Register.m in Sources */,
+				786598711C465911003C7679 /* MKTMyViewController.m in Sources */,
 				787FC55D1C4402240049A618 /* MKTBrowseOrPublicVC.m in Sources */,
-				78BAFA3D1C43A9B600F7C631 /* MKTLoginViewController.m in Sources */,
 				78D251241C44D01500CCDCE3 /* MKTLoginRequest.m in Sources */,
+				7865986C1C465538003C7679 /* MKTRegisterViewController.m in Sources */,
+				7865986B1C465538003C7679 /* MKTLoginViewController.m in Sources */,
 				786598481C462CD8003C7679 /* MKTUserModel+Login.m in Sources */,
 				78D2511C1C44C8D400CCDCE3 /* BLMultipartForm.m in Sources */,
 				780FE78B1C3FD15300EB9091 /* AppDelegate.m in Sources */,
 				786598451C45F736003C7679 /* MKTRegisterRequestParser.m in Sources */,
 				78D251201C44CE8800CCDCE3 /* MKTUserModel.m in Sources */,
 				78D251281C44D0FF00CCDCE3 /* MKTLoginRequestParser.m in Sources */,
+				7865986E1C465538003C7679 /* MKTPublicPhotoVC.m in Sources */,
 				786598421C45F218003C7679 /* MKTRegisterRequest.m in Sources */,
-				78BAFA401C43A9D000F7C631 /* MKTRegisterViewController.m in Sources */,
+				78CF857F1C46999000EFB7C2 /* MKTAuthCodeViewController.m in Sources */,
 				780FE7531C3FD00B00EB9091 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

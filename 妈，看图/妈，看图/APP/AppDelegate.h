@@ -15,5 +15,7 @@
 
 - (void)loadLoginView;
 
+- (void)loadPublishPhotoView:(UIViewController *) viewController;
+
 @end
 

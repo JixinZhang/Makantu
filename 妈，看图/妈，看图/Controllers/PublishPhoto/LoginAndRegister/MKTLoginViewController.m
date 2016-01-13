@@ -9,6 +9,8 @@
 #import "MKTLoginViewController.h"
 #import "MKTUserModel+Login.h"
 #import "MKTLoginRequest.h"
+#import "AppDelegate.h"
+
 @interface MKTLoginViewController ()<UITextFieldDelegate,UIAlertViewDelegate,MKTLoginRequestDelegate>
 @property (nonatomic,strong) MKTLoginRequest *loginRequest;
 
@@ -101,6 +103,8 @@
 {
     if ([user.loginReturnStatusCode isEqualToString:@"1"]) {
         NSLog(@"登录成功，转换页面");
+        AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        [appDelegate loadPublishPhotoView:self];
     }else {
 //        NSLog(@"登录失败:%@",user.loginReturnMessage);
 //        [self showErrorMessage:user.loginReturnMessage];
