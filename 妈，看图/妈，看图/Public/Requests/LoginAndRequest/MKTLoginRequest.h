@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MKTUserModel.h"
+#import "MKTUserModel+Login.h"
 
 @class MKTLoginRequest;
 
 @protocol MKTLoginRequestDelegate <NSObject>
 
-- (void)loginRequestSuccess:(MKTLoginRequest *)request user:(MKTUserModel *)user;
+- (void)loginRequestSuccess:(MKTLoginRequest *)request user:(MKTUserModel_Login *)user;
 - (void)loginRequestFailed:(MKTLoginRequest *)request error:(NSError *)error;
 
 @end

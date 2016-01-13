@@ -1,20 +1,19 @@
 //
-//  MKTLoginRequestParser.m
+//  MKTRegisterRequestParser.m
 //  妈，看图
 //
-//  Created by ZhangBob on 1/12/16.
+//  Created by ZhangBob on 1/13/16.
 //  Copyright © 2016 JixinZhang. All rights reserved.
 //
 
-#import "MKTLoginRequestParser.h"
+#import "MKTRegisterRequestParser.h"
 
-@implementation MKTLoginRequestParser
+@implementation MKTRegisterRequestParser
 
-- (MKTUserModel_Login *)parserDictionary:(NSDictionary *)dictionary
+- (MKTUserModel_Register *) parserDictionary:(NSDictionary *)dictionary
 {
-    
     if (!dictionary == 0) {
-        MKTUserModel_Login *user = [[MKTUserModel_Login alloc] init];
+        MKTUserModel_Register *user = [[MKTUserModel_Register alloc] init];
         
         id data = [dictionary valueForKey:@"data"];
         if ([[data class]  isSubclassOfClass:[NSDictionary class]]) {
@@ -37,12 +36,12 @@
         
         id returnMessage = [dictionary valueForKey:@"message"];
         if ([[returnMessage class] isSubclassOfClass:[NSString class]]) {
-            user.loginReturnMessage = returnMessage;
+            user.registerReturnMessage = returnMessage;
         }
         
         id returnStatusCode = [dictionary valueForKey:@"status"];
         if ([[returnMessage class] isSubclassOfClass:[NSString class]]) {
-            user.loginReturnStatusCode = returnStatusCode;
+            user.registerReturnStatusCode = returnStatusCode;
         }
         return user;
     }
@@ -51,4 +50,3 @@
 }
 
 @end
-

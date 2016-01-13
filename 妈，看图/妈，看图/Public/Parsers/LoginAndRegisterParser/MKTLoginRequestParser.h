@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MKTUserModel.h"
+#import "MKTUserModel+Login.h"
 
 @interface MKTLoginRequestParser : NSObject
 
 
-- (MKTUserModel *)parserDictionary:(NSDictionary *)dictionary;
+- (MKTUserModel_Login *)parserDictionary:(NSDictionary *)dictionary;
 
 @end

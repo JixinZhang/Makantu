@@ -15,6 +15,10 @@
 		780FE7771C3FD00B00EB9091 /* ____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 780FE7761C3FD00B00EB9091 /* ____UITests.m */; };
 		780FE78B1C3FD15300EB9091 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 780FE7861C3FD15300EB9091 /* AppDelegate.m */; };
 		780FE7961C3FD3A300EB9091 /* MKTLoginAndRegister.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 780FE7951C3FD3A300EB9091 /* MKTLoginAndRegister.storyboard */; };
+		786598421C45F218003C7679 /* MKTRegisterRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 786598411C45F218003C7679 /* MKTRegisterRequest.m */; };
+		786598451C45F736003C7679 /* MKTRegisterRequestParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 786598441C45F736003C7679 /* MKTRegisterRequestParser.m */; };
+		786598481C462CD8003C7679 /* MKTUserModel+Login.m in Sources */ = {isa = PBXBuildFile; fileRef = 786598471C462CD8003C7679 /* MKTUserModel+Login.m */; };
+		7865984B1C462D54003C7679 /* MKTUserModel+Register.m in Sources */ = {isa = PBXBuildFile; fileRef = 7865984A1C462D54003C7679 /* MKTUserModel+Register.m */; };
 		787FC55D1C4402240049A618 /* MKTBrowseOrPublicVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 787FC55C1C4402240049A618 /* MKTBrowseOrPublicVC.m */; };
 		787FC55F1C44047B0049A618 /* mainResource.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 787FC55E1C44047B0049A618 /* mainResource.xcassets */; };
 		78BAFA3D1C43A9B600F7C631 /* MKTLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78BAFA3C1C43A9B600F7C631 /* MKTLoginViewController.m */; };
@@ -58,6 +62,14 @@
 		780FE7851C3FD15300EB9091 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		780FE7861C3FD15300EB9091 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		780FE7951C3FD3A300EB9091 /* MKTLoginAndRegister.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MKTLoginAndRegister.storyboard; sourceTree = "<group>"; };
+		786598401C45F218003C7679 /* MKTRegisterRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTRegisterRequest.h; sourceTree = "<group>"; };
+		786598411C45F218003C7679 /* MKTRegisterRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTRegisterRequest.m; sourceTree = "<group>"; };
+		786598431C45F736003C7679 /* MKTRegisterRequestParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTRegisterRequestParser.h; sourceTree = "<group>"; };
+		786598441C45F736003C7679 /* MKTRegisterRequestParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTRegisterRequestParser.m; sourceTree = "<group>"; };
+		786598461C462CD8003C7679 /* MKTUserModel+Login.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKTUserModel+Login.h"; sourceTree = "<group>"; };
+		786598471C462CD8003C7679 /* MKTUserModel+Login.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKTUserModel+Login.m"; sourceTree = "<group>"; };
+		786598491C462D54003C7679 /* MKTUserModel+Register.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKTUserModel+Register.h"; sourceTree = "<group>"; };
+		7865984A1C462D54003C7679 /* MKTUserModel+Register.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKTUserModel+Register.m"; sourceTree = "<group>"; };
 		787FC55B1C4402240049A618 /* MKTBrowseOrPublicVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTBrowseOrPublicVC.h; sourceTree = "<group>"; };
 		787FC55C1C4402240049A618 /* MKTBrowseOrPublicVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTBrowseOrPublicVC.m; sourceTree = "<group>"; };
 		787FC55E1C44047B0049A618 /* mainResource.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = mainResource.xcassets; sourceTree = "<group>"; };
@@ -302,6 +314,10 @@
 			children = (
 				78D2511E1C44CE8800CCDCE3 /* MKTUserModel.h */,
 				78D2511F1C44CE8800CCDCE3 /* MKTUserModel.m */,
+				786598461C462CD8003C7679 /* MKTUserModel+Login.h */,
+				786598471C462CD8003C7679 /* MKTUserModel+Login.m */,
+				786598491C462D54003C7679 /* MKTUserModel+Register.h */,
+				7865984A1C462D54003C7679 /* MKTUserModel+Register.m */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -311,6 +327,8 @@
 			children = (
 				78D251221C44D01500CCDCE3 /* MKTLoginRequest.h */,
 				78D251231C44D01500CCDCE3 /* MKTLoginRequest.m */,
+				786598401C45F218003C7679 /* MKTRegisterRequest.h */,
+				786598411C45F218003C7679 /* MKTRegisterRequest.m */,
 			);
 			path = LoginAndRequest;
 			sourceTree = "<group>";
@@ -320,6 +338,8 @@
 			children = (
 				78D251261C44D0FF00CCDCE3 /* MKTLoginRequestParser.h */,
 				78D251271C44D0FF00CCDCE3 /* MKTLoginRequestParser.m */,
+				786598431C45F736003C7679 /* MKTRegisterRequestParser.h */,
+				786598441C45F736003C7679 /* MKTRegisterRequestParser.m */,
 			);
 			path = LoginAndRegisterParser;
 			sourceTree = "<group>";
@@ -524,13 +544,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7865984B1C462D54003C7679 /* MKTUserModel+Register.m in Sources */,
 				787FC55D1C4402240049A618 /* MKTBrowseOrPublicVC.m in Sources */,
 				78BAFA3D1C43A9B600F7C631 /* MKTLoginViewController.m in Sources */,
 				78D251241C44D01500CCDCE3 /* MKTLoginRequest.m in Sources */,
+				786598481C462CD8003C7679 /* MKTUserModel+Login.m in Sources */,
 				78D2511C1C44C8D400CCDCE3 /* BLMultipartForm.m in Sources */,
 				780FE78B1C3FD15300EB9091 /* AppDelegate.m in Sources */,
+				786598451C45F736003C7679 /* MKTRegisterRequestParser.m in Sources */,
 				78D251201C44CE8800CCDCE3 /* MKTUserModel.m in Sources */,
 				78D251281C44D0FF00CCDCE3 /* MKTLoginRequestParser.m in Sources */,
+				786598421C45F218003C7679 /* MKTRegisterRequest.m in Sources */,
 				78BAFA401C43A9D000F7C631 /* MKTRegisterViewController.m in Sources */,
 				780FE7531C3FD00B00EB9091 /* main.m in Sources */,
 			);

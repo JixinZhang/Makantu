@@ -8,7 +8,7 @@
 
 #import "MKTLoginRequest.h"
 #import "BLMultipartForm.h"
-#import "MKTUserModel.h"
+#import "MKTUserModel+Login.h"
 #import "MKTLoginRequestParser.h"
 #import <AFNetworking.h>
 
@@ -33,7 +33,7 @@
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"AFNetworking 返回成功信息:%@",responseObject);
         MKTLoginRequestParser *parser = [[MKTLoginRequestParser alloc] init];
-        MKTUserModel *user = [parser parserDictionary:responseObject];
+        MKTUserModel_Login *user = [parser parserDictionary:responseObject];
         if ([_delegate respondsToSelector:@selector(loginRequestSuccess:user:)]) {
             [_delegate loginRequestSuccess:self user:user];
         }

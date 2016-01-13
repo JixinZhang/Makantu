@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "E99AC0BFB1A1216709E0BE8373ED2C1A6920AAE2",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "19A4ADEE0AED0DD10C6A2A96AB797FA50C6105B2" : 0,
+    "E99AC0BFB1A1216709E0BE8373ED2C1A6920AAE2" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "6E7ED9E7-D332-405A-9E81-F7184BB6B55C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "19A4ADEE0AED0DD10C6A2A96AB797FA50C6105B2" : "",
+    "E99AC0BFB1A1216709E0BE8373ED2C1A6920AAE2" : "Makantu_iOS\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "妈，看图",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "妈，看图\/妈，看图.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/GeekBand\/GeekBand-I150001.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "19A4ADEE0AED0DD10C6A2A96AB797FA50C6105B2"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/JixinZhang\/Makantu.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E99AC0BFB1A1216709E0BE8373ED2C1A6920AAE2"
+    }
+  ]
+}

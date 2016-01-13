@@ -7,7 +7,7 @@
 //
 
 #import "MKTLoginViewController.h"
-#import "MKTUserModel.h"
+#import "MKTUserModel+Login.h"
 #import "MKTLoginRequest.h"
 @interface MKTLoginViewController ()<UITextFieldDelegate,UIAlertViewDelegate,MKTLoginRequestDelegate>
 @property (nonatomic,strong) MKTLoginRequest *loginRequest;
@@ -97,13 +97,13 @@
 
 #pragma mark - MKTLoginRequestDelegate methods
 
-- (void)loginRequestSuccess:(MKTLoginRequest *)request user:(MKTUserModel *)user
+- (void)loginRequestSuccess:(MKTLoginRequest *)request user:(MKTUserModel_Login *)user
 {
-    if ([user.loginReturnMessage isEqualToString:@"Login success"]) {
+    if ([user.loginReturnStatusCode isEqualToString:@"1"]) {
         NSLog(@"登录成功，转换页面");
     }else {
 //        NSLog(@"登录失败:%@",user.loginReturnMessage);
-        
+//        [self showErrorMessage:user.loginReturnMessage];
         if ([user.loginReturnMessage isEqualToString:@"Wrong password"]) {
             [self showErrorMessage:@"密码错误"];
         }

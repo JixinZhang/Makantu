@@ -7,8 +7,11 @@
 //
 
 #import "MKTRegisterViewController.h"
+#import "MKTRegisterRequest.h"
+#import "MKTUserModel+Register.h"
+@interface MKTRegisterViewController ()<UITextFieldDelegate,UIAlertViewDelegate,MKTRegisterRequestDelegate>
 
-@interface MKTRegisterViewController ()<UITextFieldDelegate,UIAlertViewDelegate>
+@property (nonatomic,strong) MKTRegisterRequest *registerRequest;
 
 @end
 
@@ -88,6 +91,26 @@
 }
 
 - (void)registerAction
+{
+    NSLog(@"正在注册，等待页面跳转");
+    NSString *userName = self.userNameTextField.text;
+    NSString *password = self.passwordTextField.text;
+    
+    self.registerRequest = [[MKTRegisterRequest alloc] init];
+    [self.registerRequest sendRegisterRequestWithUserName:userName password:password delegate:self];
+}
+
+
+- (void)registerRequestSuccess:(MKTRegisterRequest *)request user:(MKTUserModel_Register *)user
+{
+    if ([user.registerReturnStatusCode  isEqualToString: @"1"]) {
+        NSLog(@"注册成功，正在进行页面跳转");
+    }else {
+        [self showErrorMessage:user.registerReturnMessage];
+    }
+}
+
+- (void)registerRequestFaild:(MKTRegisterRequest *)request error:(NSError *)error
 {
     
 }
