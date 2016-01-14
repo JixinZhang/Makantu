@@ -92,10 +92,36 @@
             </objects>
             <point key="canvasLocation" x="685" y="337"/>
         </scene>
+        <!--设置头像-->
+        <scene sceneID="sKe-gZ-rI1">
+            <objects>
+                <viewController storyboardIdentifier="MKTHeadImageStoryboard" id="5Qy-jG-CDk" customClass="MKTHeadImageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1nZ-3L-rNk"/>
+                        <viewControllerLayoutGuide type="bottom" id="Bzz-ge-VjP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lWm-nU-8OB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="设置头像" id="vQA-Le-paW">
+                        <barButtonItem key="rightBarButtonItem" title="确定" id="bC6-ga-EkR">
+                            <connections>
+                                <action selector="changeHeadImageButtonClicked:" destination="5Qy-jG-CDk" id="Sgx-km-lBd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KPF-8q-IXZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1121" y="748"/>
+        </scene>
         <!--授权码-->
         <scene sceneID="n6Z-uv-IUM">
             <objects>
-                <viewController id="uIt-ty-pvY" customClass="MKTAuthCodeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MKTAuthCodeStoryboard" id="uIt-ty-pvY" customClass="MKTAuthCodeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ewo-GO-X8N"/>
                         <viewControllerLayoutGuide type="bottom" id="OuM-lo-9Rr"/>
@@ -104,7 +130,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="输入您想更改的授权码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YvP-20-gc8">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="输入您想更改的授权码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YvP-20-gc8">
                                 <rect key="frame" x="20" y="72" width="280" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -117,15 +143,27 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="YvP-20-gc8" secondAttribute="trailing" constant="20" id="0pc-zU-Gkr"/>
+                            <constraint firstItem="YvP-20-gc8" firstAttribute="top" secondItem="Ewo-GO-X8N" secondAttribute="bottom" constant="8" id="55X-Dy-oFt"/>
+                            <constraint firstItem="YvP-20-gc8" firstAttribute="leading" secondItem="Inz-Oh-FaE" secondAttribute="leading" constant="20" id="nZH-Z3-nhO"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="授权码" id="KEV-Df-H27">
-                        <barButtonItem key="rightBarButtonItem" title="确定" id="hkz-MN-gws"/>
+                        <barButtonItem key="rightBarButtonItem" title="确定" id="hkz-MN-gws">
+                            <connections>
+                                <action selector="changeAuthCodeButtonClicked:" destination="uIt-ty-pvY" id="Cyh-e9-xXh"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="AuthCodeTextField" destination="YvP-20-gc8" id="RUh-dO-uDh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ICd-6R-Irm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1039" y="337"/>
+            <point key="canvasLocation" x="1121" y="122"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rXZ-kj-Du8">

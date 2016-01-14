@@ -10,6 +10,7 @@
 #import "MKTUserModel+Login.h"
 #import "MKTLoginRequest.h"
 #import "AppDelegate.h"
+#import "MKTGlobal.h"
 
 @interface MKTLoginViewController ()<UITextFieldDelegate,UIAlertViewDelegate,MKTLoginRequestDelegate>
 @property (nonatomic,strong) MKTLoginRequest *loginRequest;
@@ -105,16 +106,12 @@
         NSLog(@"登录成功，转换页面");
         AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
         [appDelegate loadPublishPhotoView:self];
+        
+        [MKTGlobal shareGlobal].user = user;
     }else {
 //        NSLog(@"登录失败:%@",user.loginReturnMessage);
-//        [self showErrorMessage:user.loginReturnMessage];
-        if ([user.loginReturnMessage isEqualToString:@"Wrong password"]) {
-            [self showErrorMessage:@"密码错误"];
-        }
+        [self showErrorMessage:user.loginReturnMessage];
         
-        if ([user.loginReturnMessage isEqualToString:@"No such user"]) {
-            [self showErrorMessage:@"没有该用户"];
-        }
     }
 }
 

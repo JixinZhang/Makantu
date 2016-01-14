@@ -17,5 +17,9 @@
 
 - (void)loadPublishPhotoView:(UIViewController *) viewController;
 
+- (void)loadPickerControllerSourceTypeCamera;
+
+- (void)loadPickerControllerSourceTypePhotoLibrary;
+
 @end
 

@@ -7,8 +7,9 @@
 //
 
 #import "MKTMyViewController.h"
-
-@interface MKTMyViewController ()
+#import "MKTHeadImageViewController.h"
+#import "MKTGlobal.h"
+@interface MKTMyViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @end
 
@@ -19,6 +20,8 @@
     
     self.headImageView.layer.cornerRadius = 30.0;
     self.headImageView.layer.masksToBounds = 30.0;
+    
+    self.userNameLabel.text = [MKTGlobal shareGlobal].user.userName;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -52,6 +55,30 @@
     }
     return header;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 1) {
+//        UIImagePickerController *pickerController = [[UIImagePickerController alloc] init];
+//        pickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+//        pickerController.delegate = self;
+//        [self presentViewController:pickerController animated:YES completion:nil];
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MKTMy" bundle:nil];
+        MKTHeadImageViewController *headImageVC = [storyboard instantiateViewControllerWithIdentifier:@"MKTHeadImageStoryboard"];
+        [self.navigationController pushViewController:headImageVC animated:YES];
+    }
+}
+
+//- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
+//{
+//    UIImage *image = info[UIImagePickerControllerOriginalImage];
+//    
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MKTMy" bundle:nil];
+//    MKTHeadImageViewController *headImageVC = [storyboard instantiateViewControllerWithIdentifier:@"MKTHeadImageStoryboard"];
+//    
+//    [picker pushViewController:headImageVC animated:YES];
+//}
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -10,4 +10,8 @@
 
 @interface MKTAuthCodeViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITextField *AuthCodeTextField;
+
+- (IBAction)changeAuthCodeButtonClicked:(id)sender;
+
 @end

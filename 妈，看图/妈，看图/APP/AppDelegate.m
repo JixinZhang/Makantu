@@ -11,11 +11,13 @@
 #import "MKTBrowseOrPublicVC.h"
 #import "MKTPublicPhotoVC.h"
 #import "MKTMyViewController.h"
+#import "MKTUploadPhotoVC.h"
 
-@interface AppDelegate ()<UINavigationBarDelegate,UIAlertViewDelegate>
+@interface AppDelegate ()<UINavigationBarDelegate,UIAlertViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property (nonatomic, strong) MKTLoginViewController *loginVC;
 @property (nonatomic, strong) UITabBarController *tabBarController;
+@property (nonatomic, strong) UIImagePickerController *pickerController;
 
 @end
 
@@ -64,10 +66,14 @@
     
     UIAlertAction *fromPicker = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         NSLog(@"选择拍照");
-    }];
+        AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        [appDelegate loadPickerControllerSourceTypeCamera];
+        }];
     
     UIAlertAction *fromLibrary = [UIAlertAction actionWithTitle:@"图库" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         NSLog(@"选择图库");
+        AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        [appDelegate loadPickerControllerSourceTypePhotoLibrary];
     }];
     
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
@@ -78,6 +84,82 @@
     
     [self.tabBarController presentViewController:alertController animated:YES completion:nil];
 }
+
+- (void)loadPickerControllerSourceTypeCamera
+{
+    self.pickerController = [[UIImagePickerController alloc]init];;
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        self.pickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+        self.pickerController.allowsEditing = YES;
+        
+        self.pickerController.delegate = self;
+        [self.tabBarController presentViewController:self.pickerController animated:YES completion:nil];
+        
+    }else {
+        UIAlertController *alertController1 = [UIAlertController alertControllerWithTitle:@"错误" message:@"无法获取相机" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {}];
+        [alertController1 addAction:cancelAction];
+        [self.tabBarController presentViewController:alertController1 animated:YES completion:nil];
+        return;
+    }
+
+}
+
+- (void)loadPickerControllerSourceTypePhotoLibrary
+{
+    self.pickerController = [[UIImagePickerController alloc] init];
+    self.pickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    self.pickerController.delegate = self;
+    [self.tabBarController presentViewController:self.pickerController animated:YES completion:nil];
+}
+
+
+#pragma mark -----UIImagePickerController delegate method
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    CGSize imagesize = image.size;
+    imagesize.height = 626;
+    imagesize.width = 413;
+    image = [self imageWithImage:image scaledToSize:imagesize];
+    
+    if (self.pickerController.sourceType == UIImagePickerControllerSourceTypePhotoLibrary) {
+        UIStoryboard *story = [UIStoryboard storyboardWithName:@"MKTUploadPhoto" bundle:nil];
+        MKTUploadPhotoVC *uploadPhotoVC =  [story instantiateViewControllerWithIdentifier:@"MKTUploadPhotoStoryboard"];
+        uploadPhotoVC.tag = 2;
+        uploadPhotoVC.uploadPhoto = image;
+        [picker pushViewController:uploadPhotoVC animated:YES];
+    }else{
+        UIStoryboard *story = [UIStoryboard storyboardWithName:@"MKTUploadPhoto" bundle:nil];
+        MKTUploadPhotoVC *uploadPhotoVC =  [story instantiateViewControllerWithIdentifier:@"MKTUploadPhotoStoryboard"];
+        UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:uploadPhotoVC];
+        uploadPhotoVC.tag = 1;
+        uploadPhotoVC.imagePicker = picker;
+        uploadPhotoVC.uploadPhoto = image;
+        [picker presentViewController:navigationController animated:YES completion:nil];
+    }
+    
+    
+}
+
+//对图片尺寸进行压缩
+-(UIImage *)imageWithImage:(UIImage*)image scaledToSize:(CGSize)newSize{
+    
+    UIGraphicsBeginImageContext(newSize);
+    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
+
+
+
+
+
+
+
+
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {

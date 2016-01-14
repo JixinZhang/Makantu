@@ -9,6 +9,8 @@
 #import "MKTRegisterViewController.h"
 #import "MKTRegisterRequest.h"
 #import "MKTUserModel+Register.h"
+#import "AppDelegate.h"
+
 @interface MKTRegisterViewController ()<UITextFieldDelegate,UIAlertViewDelegate,MKTRegisterRequestDelegate>
 
 @property (nonatomic,strong) MKTRegisterRequest *registerRequest;
@@ -105,6 +107,8 @@
 {
     if ([user.registerReturnStatusCode  isEqualToString: @"1"]) {
         NSLog(@"注册成功，正在进行页面跳转");
+        AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        [appDelegate loadPublishPhotoView:self];
     }else {
         [self showErrorMessage:user.registerReturnMessage];
     }
