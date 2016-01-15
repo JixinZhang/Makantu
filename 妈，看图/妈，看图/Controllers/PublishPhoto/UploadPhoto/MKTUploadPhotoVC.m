@@ -26,7 +26,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     CGFloat heightOfUploadPhoto = self.uploadPhoto.size.height;
-    self.uploadImageView = [[UIImageView alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2.0-120, 72, 240, 240)];
+    CGFloat widthOfUploadPhoto = self.uploadPhoto.size.width;
+    self.uploadImageView = [[UIImageView alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2.0-120, 72, 240, 240*heightOfUploadPhoto/widthOfUploadPhoto)];
     self.uploadImageView.image = self.uploadPhoto;
     
     [self.view addSubview:self.uploadImageView];

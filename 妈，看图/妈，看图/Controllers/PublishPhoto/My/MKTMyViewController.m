@@ -15,6 +15,11 @@
 
 @implementation MKTMyViewController
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    self.headImageView.image = [MKTGlobal shareGlobal].user.avatorImage;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     

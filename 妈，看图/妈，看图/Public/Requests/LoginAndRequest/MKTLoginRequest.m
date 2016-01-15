@@ -29,9 +29,9 @@
     AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
     NSDictionary *parameter = [[NSDictionary alloc] initWithObjectsAndKeys:userName,@"userName",password,@"password", nil];
     
-    [session POST:urlString parameters:parameter progress:^(NSProgress * _Nonnull uploadProgress) {
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"AFNetworking 返回成功信息:%@",responseObject);
+    [session POST:urlString parameters:parameter
+          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+              NSLog(@"登录返回信息：%@",responseObject);
         MKTLoginRequestParser *parser = [[MKTLoginRequestParser alloc] init];
         MKTUserModel_Login *user = [parser parserDictionary:responseObject];
         if ([_delegate respondsToSelector:@selector(loginRequestSuccess:user:)]) {

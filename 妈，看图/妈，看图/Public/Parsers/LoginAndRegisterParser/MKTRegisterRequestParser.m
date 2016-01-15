@@ -7,7 +7,7 @@
 //
 
 #import "MKTRegisterRequestParser.h"
-
+#import "ReplaceUnicode.h"
 @implementation MKTRegisterRequestParser
 
 - (MKTUserModel_Register *) parserDictionary:(NSDictionary *)dictionary
@@ -35,6 +35,8 @@
         }
         
         id returnMessage = [dictionary valueForKey:@"message"];
+        returnMessage = [ReplaceUnicode replaceUnicode:returnMessage];
+        
         if ([[returnMessage class] isSubclassOfClass:[NSString class]]) {
             user.registerReturnMessage = returnMessage;
         }

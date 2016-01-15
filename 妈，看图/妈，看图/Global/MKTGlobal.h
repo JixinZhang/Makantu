@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "MKTUserModel.h"
+#import "MKTUploadPicture.h"
 
 @interface MKTGlobal : NSObject
 
 @property (nonatomic,strong) MKTUserModel *user;
+@property (nonatomic,strong) MKTUploadPicture *picture;
 
 + (MKTGlobal *)shareGlobal;
 

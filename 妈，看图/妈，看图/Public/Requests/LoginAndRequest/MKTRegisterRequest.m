@@ -25,9 +25,8 @@
     
     NSDictionary *parameter = [[NSDictionary alloc] initWithObjectsAndKeys:userName,@"userName",password,@"password", nil];
     
-    [sessionManager POST:urlString parameters:parameter progress:^(NSProgress * _Nonnull uploadProgress) {
-        
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [sessionManager POST:urlString parameters:parameter
+                 success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"注册返回信息：responseObject = %@",responseObject);
         
         MKTRegisterRequestParser *parser = [[MKTRegisterRequestParser alloc] init];

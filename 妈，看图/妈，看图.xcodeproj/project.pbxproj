@@ -30,11 +30,15 @@
 		7880D5A11C4780FC00E1ACC2 /* MKTGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = 7880D5A01C4780FC00E1ACC2 /* MKTGlobal.m */; };
 		7880D5A41C47B44600E1ACC2 /* MKTUploadPhotoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7880D5A31C47B44600E1ACC2 /* MKTUploadPhotoVC.m */; };
 		7880D5A61C47B55900E1ACC2 /* MKTUploadPhoto.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7880D5A51C47B55900E1ACC2 /* MKTUploadPhoto.storyboard */; };
+		78A7E6C61C48D04A009BB8E0 /* ReplaceUnicode.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A7E6C51C48D04A009BB8E0 /* ReplaceUnicode.m */; };
 		78CF857F1C46999000EFB7C2 /* MKTAuthCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78CF857E1C46999000EFB7C2 /* MKTAuthCodeViewController.m */; };
 		78D2511C1C44C8D400CCDCE3 /* BLMultipartForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 78D2511B1C44C8D400CCDCE3 /* BLMultipartForm.m */; };
 		78D251201C44CE8800CCDCE3 /* MKTUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 78D2511F1C44CE8800CCDCE3 /* MKTUserModel.m */; };
 		78D251241C44D01500CCDCE3 /* MKTLoginRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 78D251231C44D01500CCDCE3 /* MKTLoginRequest.m */; };
 		78D251281C44D0FF00CCDCE3 /* MKTLoginRequestParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 78D251271C44D0FF00CCDCE3 /* MKTLoginRequestParser.m */; };
+		78D57F411C49004C005DFA1C /* UpYun.m in Sources */ = {isa = PBXBuildFile; fileRef = 78D57F401C49004C005DFA1C /* UpYun.m */; };
+		78D57F451C49331A005DFA1C /* MKTUploadPicture.m in Sources */ = {isa = PBXBuildFile; fileRef = 78D57F441C49331A005DFA1C /* MKTUploadPicture.m */; };
+		78D57F491C4934B7005DFA1C /* MKTUploadPictureRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 78D57F481C4934B7005DFA1C /* MKTUploadPictureRequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +101,8 @@
 		7880D5A21C47B44600E1ACC2 /* MKTUploadPhotoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTUploadPhotoVC.h; sourceTree = "<group>"; };
 		7880D5A31C47B44600E1ACC2 /* MKTUploadPhotoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTUploadPhotoVC.m; sourceTree = "<group>"; };
 		7880D5A51C47B55900E1ACC2 /* MKTUploadPhoto.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MKTUploadPhoto.storyboard; sourceTree = "<group>"; };
+		78A7E6C41C48D04A009BB8E0 /* ReplaceUnicode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReplaceUnicode.h; sourceTree = "<group>"; };
+		78A7E6C51C48D04A009BB8E0 /* ReplaceUnicode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReplaceUnicode.m; sourceTree = "<group>"; };
 		78CF857D1C46999000EFB7C2 /* MKTAuthCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTAuthCodeViewController.h; sourceTree = "<group>"; };
 		78CF857E1C46999000EFB7C2 /* MKTAuthCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTAuthCodeViewController.m; sourceTree = "<group>"; };
 		78D2511A1C44C8D400CCDCE3 /* BLMultipartForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLMultipartForm.h; sourceTree = "<group>"; };
@@ -107,6 +113,12 @@
 		78D251231C44D01500CCDCE3 /* MKTLoginRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTLoginRequest.m; sourceTree = "<group>"; };
 		78D251261C44D0FF00CCDCE3 /* MKTLoginRequestParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTLoginRequestParser.h; sourceTree = "<group>"; };
 		78D251271C44D0FF00CCDCE3 /* MKTLoginRequestParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTLoginRequestParser.m; sourceTree = "<group>"; };
+		78D57F3F1C49004C005DFA1C /* UpYun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpYun.h; sourceTree = "<group>"; };
+		78D57F401C49004C005DFA1C /* UpYun.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpYun.m; sourceTree = "<group>"; };
+		78D57F431C49331A005DFA1C /* MKTUploadPicture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTUploadPicture.h; sourceTree = "<group>"; };
+		78D57F441C49331A005DFA1C /* MKTUploadPicture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTUploadPicture.m; sourceTree = "<group>"; };
+		78D57F471C4934B7005DFA1C /* MKTUploadPictureRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTUploadPictureRequest.h; sourceTree = "<group>"; };
+		78D57F481C4934B7005DFA1C /* MKTUploadPictureRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTUploadPictureRequest.m; sourceTree = "<group>"; };
 		8178891802F476730063A135 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		8235E1432C785999A8CA4C9C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -226,6 +238,7 @@
 		780FE7881C3FD15300EB9091 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				78D57F421C4932FA005DFA1C /* Picture */,
 				78D2511D1C44CE6A00CCDCE3 /* User */,
 			);
 			path = Models;
@@ -251,6 +264,7 @@
 		780FE78E1C3FD21200EB9091 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				78D57F3E1C49004C005DFA1C /* UpYun */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -364,6 +378,8 @@
 			isa = PBXGroup;
 			children = (
 				78D251251C44D0E100CCDCE3 /* LoginAndRegisterParser */,
+				78A7E6C41C48D04A009BB8E0 /* ReplaceUnicode.h */,
+				78A7E6C51C48D04A009BB8E0 /* ReplaceUnicode.m */,
 			);
 			path = Parsers;
 			sourceTree = "<group>";
@@ -371,6 +387,7 @@
 		78D251151C44C58D00CCDCE3 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
+				78D57F461C493496005DFA1C /* UploadPicture */,
 				78D251211C44D01500CCDCE3 /* LoginAndRequest */,
 			);
 			path = Requests;
@@ -394,6 +411,8 @@
 				786598471C462CD8003C7679 /* MKTUserModel+Login.m */,
 				786598491C462D54003C7679 /* MKTUserModel+Register.h */,
 				7865984A1C462D54003C7679 /* MKTUserModel+Register.m */,
+				78D57F431C49331A005DFA1C /* MKTUploadPicture.h */,
+				78D57F441C49331A005DFA1C /* MKTUploadPicture.m */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -418,6 +437,31 @@
 				786598441C45F736003C7679 /* MKTRegisterRequestParser.m */,
 			);
 			path = LoginAndRegisterParser;
+			sourceTree = "<group>";
+		};
+		78D57F3E1C49004C005DFA1C /* UpYun */ = {
+			isa = PBXGroup;
+			children = (
+				78D57F3F1C49004C005DFA1C /* UpYun.h */,
+				78D57F401C49004C005DFA1C /* UpYun.m */,
+			);
+			path = UpYun;
+			sourceTree = "<group>";
+		};
+		78D57F421C4932FA005DFA1C /* Picture */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Picture;
+			sourceTree = "<group>";
+		};
+		78D57F461C493496005DFA1C /* UploadPicture */ = {
+			isa = PBXGroup;
+			children = (
+				78D57F471C4934B7005DFA1C /* MKTUploadPictureRequest.h */,
+				78D57F481C4934B7005DFA1C /* MKTUploadPictureRequest.m */,
+			);
+			path = UploadPicture;
 			sourceTree = "<group>";
 		};
 		92C5257E9B4634702E076C59 /* Pods */ = {
@@ -625,13 +669,17 @@
 				7865984B1C462D54003C7679 /* MKTUserModel+Register.m in Sources */,
 				786598711C465911003C7679 /* MKTMyViewController.m in Sources */,
 				7880D5A41C47B44600E1ACC2 /* MKTUploadPhotoVC.m in Sources */,
+				78D57F411C49004C005DFA1C /* UpYun.m in Sources */,
 				787FC55D1C4402240049A618 /* MKTBrowseOrPublicVC.m in Sources */,
 				78D251241C44D01500CCDCE3 /* MKTLoginRequest.m in Sources */,
+				78D57F451C49331A005DFA1C /* MKTUploadPicture.m in Sources */,
 				7865986C1C465538003C7679 /* MKTRegisterViewController.m in Sources */,
+				78D57F491C4934B7005DFA1C /* MKTUploadPictureRequest.m in Sources */,
 				7865986B1C465538003C7679 /* MKTLoginViewController.m in Sources */,
 				786598481C462CD8003C7679 /* MKTUserModel+Login.m in Sources */,
 				78D2511C1C44C8D400CCDCE3 /* BLMultipartForm.m in Sources */,
 				780FE78B1C3FD15300EB9091 /* AppDelegate.m in Sources */,
+				78A7E6C61C48D04A009BB8E0 /* ReplaceUnicode.m in Sources */,
 				7880D5A11C4780FC00E1ACC2 /* MKTGlobal.m in Sources */,
 				786598451C45F736003C7679 /* MKTRegisterRequestParser.m in Sources */,
 				78D251201C44CE8800CCDCE3 /* MKTUserModel.m in Sources */,

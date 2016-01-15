@@ -7,6 +7,8 @@
 //
 
 #import "MKTLoginRequestParser.h"
+#import "ReplaceUnicode.h"
+
 
 @implementation MKTLoginRequestParser
 
@@ -42,7 +44,10 @@
             }
         }
         
-        id returnMessage = [dictionary valueForKey:@"message"];
+        id returnMessageUnicode = [dictionary valueForKey:@"message"];
+        
+        id returnMessage = [ReplaceUnicode replaceUnicode:returnMessageUnicode];
+        
         if ([[returnMessage class] isSubclassOfClass:[NSString class]]) {
             user.loginReturnMessage = returnMessage;
         }
