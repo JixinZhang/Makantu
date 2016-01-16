@@ -29,5 +29,9 @@
                                       remark:(NSString *)remark
                                     delegate:(id<MKTUploadPictureRequestDelegate>)delegate;
 
+- (void)senduploadAvatorRequestWithUser_id:(NSString *)id
+                                       Url:(NSString *)Url
+                                  delegate:(id<MKTUploadPictureRequestDelegate>)delegate;
+
 @end
 

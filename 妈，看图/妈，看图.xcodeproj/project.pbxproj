@@ -37,8 +37,8 @@
 		78D251241C44D01500CCDCE3 /* MKTLoginRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 78D251231C44D01500CCDCE3 /* MKTLoginRequest.m */; };
 		78D251281C44D0FF00CCDCE3 /* MKTLoginRequestParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 78D251271C44D0FF00CCDCE3 /* MKTLoginRequestParser.m */; };
 		78D57F411C49004C005DFA1C /* UpYun.m in Sources */ = {isa = PBXBuildFile; fileRef = 78D57F401C49004C005DFA1C /* UpYun.m */; };
-		78D57F451C49331A005DFA1C /* MKTUploadPicture.m in Sources */ = {isa = PBXBuildFile; fileRef = 78D57F441C49331A005DFA1C /* MKTUploadPicture.m */; };
 		78D57F491C4934B7005DFA1C /* MKTUploadPictureRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 78D57F481C4934B7005DFA1C /* MKTUploadPictureRequest.m */; };
+		78DFBEB91C4A6AF600CD49B8 /* MKTUploadPicture.m in Sources */ = {isa = PBXBuildFile; fileRef = 78DFBEB81C4A6AF600CD49B8 /* MKTUploadPicture.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,10 +115,10 @@
 		78D251271C44D0FF00CCDCE3 /* MKTLoginRequestParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTLoginRequestParser.m; sourceTree = "<group>"; };
 		78D57F3F1C49004C005DFA1C /* UpYun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpYun.h; sourceTree = "<group>"; };
 		78D57F401C49004C005DFA1C /* UpYun.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpYun.m; sourceTree = "<group>"; };
-		78D57F431C49331A005DFA1C /* MKTUploadPicture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTUploadPicture.h; sourceTree = "<group>"; };
-		78D57F441C49331A005DFA1C /* MKTUploadPicture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTUploadPicture.m; sourceTree = "<group>"; };
 		78D57F471C4934B7005DFA1C /* MKTUploadPictureRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTUploadPictureRequest.h; sourceTree = "<group>"; };
 		78D57F481C4934B7005DFA1C /* MKTUploadPictureRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTUploadPictureRequest.m; sourceTree = "<group>"; };
+		78DFBEB71C4A6AF600CD49B8 /* MKTUploadPicture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTUploadPicture.h; sourceTree = "<group>"; };
+		78DFBEB81C4A6AF600CD49B8 /* MKTUploadPicture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTUploadPicture.m; sourceTree = "<group>"; };
 		8178891802F476730063A135 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		8235E1432C785999A8CA4C9C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -411,8 +411,6 @@
 				786598471C462CD8003C7679 /* MKTUserModel+Login.m */,
 				786598491C462D54003C7679 /* MKTUserModel+Register.h */,
 				7865984A1C462D54003C7679 /* MKTUserModel+Register.m */,
-				78D57F431C49331A005DFA1C /* MKTUploadPicture.h */,
-				78D57F441C49331A005DFA1C /* MKTUploadPicture.m */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -451,6 +449,8 @@
 		78D57F421C4932FA005DFA1C /* Picture */ = {
 			isa = PBXGroup;
 			children = (
+				78DFBEB71C4A6AF600CD49B8 /* MKTUploadPicture.h */,
+				78DFBEB81C4A6AF600CD49B8 /* MKTUploadPicture.m */,
 			);
 			path = Picture;
 			sourceTree = "<group>";
@@ -672,9 +672,9 @@
 				78D57F411C49004C005DFA1C /* UpYun.m in Sources */,
 				787FC55D1C4402240049A618 /* MKTBrowseOrPublicVC.m in Sources */,
 				78D251241C44D01500CCDCE3 /* MKTLoginRequest.m in Sources */,
-				78D57F451C49331A005DFA1C /* MKTUploadPicture.m in Sources */,
 				7865986C1C465538003C7679 /* MKTRegisterViewController.m in Sources */,
 				78D57F491C4934B7005DFA1C /* MKTUploadPictureRequest.m in Sources */,
+				78DFBEB91C4A6AF600CD49B8 /* MKTUploadPicture.m in Sources */,
 				7865986B1C465538003C7679 /* MKTLoginViewController.m in Sources */,
 				786598481C462CD8003C7679 /* MKTUserModel+Login.m in Sources */,
 				78D2511C1C44C8D400CCDCE3 /* BLMultipartForm.m in Sources */,
@@ -823,6 +823,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "妈，看图/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.zjixin.----";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -838,6 +839,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "妈，看图/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.zjixin.----";
 				PRODUCT_NAME = "$(TARGET_NAME)";

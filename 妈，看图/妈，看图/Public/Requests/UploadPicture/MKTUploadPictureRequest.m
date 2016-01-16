@@ -8,6 +8,8 @@
 
 #import "MKTUploadPictureRequest.h"
 #import <AFNetworking.h>
+#import "MKTUploadPicture.h"
+
 @implementation MKTUploadPictureRequest
 
 - (void)sendUploadPictureRequestWithUserName:(NSString *)userName
@@ -22,7 +24,8 @@
     self.delegate = delegate;
     
     NSString *urlString = @"http://115.28.47.37:8080/pic/upload";
-    
+//    NSString *urlString = @"http://192.168.1.106:8080/pic/upload";
+
     AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
     NSDictionary *parameter = [[NSDictionary alloc] initWithObjectsAndKeys:userName,@"userName",authCode,@"authCode",originalUrl,@"originalUrl",smallUrl,@"smallUrl",height,@"height",width,@"width",remark,@"remark",nil];
     
@@ -30,48 +33,54 @@
     [session POST:urlString parameters:parameter
           success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
               NSLog(@"上传头像，应用服务器返回信息：%@",responseObject);
-//              MKTLoginRequestParser *parser = [[MKTLoginRequestParser alloc] init];
-//              MKTUserModel_Login *user = [parser parserDictionary:responseObject];
-//              if ([_delegate respondsToSelector:@selector(loginRequestSuccess:user:)]) {
-//                  [_delegate loginRequestSuccess:self user:user];
-//              }
+              MKTUploadPicture *picture = [[MKTUploadPicture alloc] init];
+              picture.statusOfUploadPic = responseObject[@"status"];
+              
+              if ([_delegate respondsToSelector:@selector(UploadPictureRequestSuccess:picture:)]) {
+                  [_delegate UploadPictureRequestSuccess:self picture:picture];
+              }
           }
           failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
               NSLog(@"AFNetworking 返回失败信息：%@",error);
-//              if ([_delegate respondsToSelector:@selector(loginRequestFailed:error:)]) {
-//                  [_delegate loginRequestFailed:self error:error];
-//              }
+              if ([_delegate respondsToSelector:@selector(UploadPictureRequestFailed:error:)]) {
+                  [_delegate UploadPictureRequestFailed:self error:error];
+              }
      
           }];
     
 }
 
+- (void)senduploadAvatorRequestWithUser_id:(NSString *)user_id
+                                       Url:(NSString *)Url
+                                  delegate:(id<MKTUploadPictureRequestDelegate>)delegate
+{
+    self.delegate = delegate;
+    
+    NSString *urlString = @"http://115.28.47.37:8080/pic/avator";
+    //    NSString *urlString = @"http://192.168.1.106:8080/pic/avator";
+    
+    AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
+    NSDictionary *parameter = [[NSDictionary alloc] initWithObjectsAndKeys:user_id,@"id",Url,@"Url",nil];
+    
+//    session.requestSerializer = [AFJSONRequestSerializer serializer];
+    [session POST:urlString parameters:parameter
+          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+              NSLog(@"上传照片，应用服务器返回信息：%@",[responseObject[@"message"] description]);
+              MKTUploadPicture *picture = [[MKTUploadPicture alloc] init];
+              picture.statusOfUploadPic = responseObject[@"status"];
+              
+              if ([_delegate respondsToSelector:@selector(UploadPictureRequestSuccess:picture:)]) {
+                  [_delegate UploadPictureRequestSuccess:self picture:picture];
+              }
+          }
+          failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+              NSLog(@"AFNetworking 返回失败信息：%@",error);
+              if ([_delegate respondsToSelector:@selector(UploadPictureRequestFailed:error:)]) {
+                  [_delegate UploadPictureRequestFailed:self error:error];
+              }
+              
+          }];
+}
 
 @end
 
-/*
- self.delegate = delegate;
- 
- NSString *urlString = @"http://115.28.47.37:8080/user/login";
- //    NSString *urlString = @"http://192.168.1.107:8080/user/login";
- 
- 
- AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
- NSDictionary *parameter = [[NSDictionary alloc] initWithObjectsAndKeys:userName,@"userName",password,@"password", nil];
- 
- [session POST:urlString parameters:parameter
- success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
- NSLog(@"登录返回信息：%@",responseObject);
- MKTLoginRequestParser *parser = [[MKTLoginRequestParser alloc] init];
- MKTUserModel_Login *user = [parser parserDictionary:responseObject];
- if ([_delegate respondsToSelector:@selector(loginRequestSuccess:user:)]) {
- [_delegate loginRequestSuccess:self user:user];
- }
- } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
- NSLog(@"AFNetworking 返回失败信息：%@",error);
- if ([_delegate respondsToSelector:@selector(loginRequestFailed:error:)]) {
- [_delegate loginRequestFailed:self error:error];
- }
- 
- }];
- */

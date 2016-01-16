@@ -16,4 +16,6 @@
 @property (nonatomic, copy)NSString *width;
 @property (nonatomic, copy)NSString *remark;
 
+@property (nonatomic, copy)NSNumber *statusOfUploadPic;
+
 @end

@@ -52,6 +52,13 @@
     
     [viewController presentViewController:self.tabBarController animated:YES completion:nil];
     
+    [UIView animateWithDuration:0.3
+                     animations:^{
+                         self.loginVC.view.alpha = 0;
+                     }
+                     completion:^(BOOL finished){
+                         self.loginVC = nil;
+                     }];
     
     UIButton *photoButton = [[UIButton alloc]initWithFrame:CGRectMake(self.window.frame.size.width/2-60, -25, 120, 50)];
     [photoButton setImage:[UIImage imageNamed:@"publish"] forState:UIControlStateNormal];
@@ -90,7 +97,7 @@
     self.pickerController = [[UIImagePickerController alloc]init];;
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         self.pickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
-        self.pickerController.allowsEditing = YES;
+        self.pickerController.allowsEditing = NO;
         
         self.pickerController.delegate = self;
         [self.tabBarController presentViewController:self.pickerController animated:YES completion:nil];
@@ -118,11 +125,11 @@
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     UIImage *image = info[UIImagePickerControllerOriginalImage];
-    CGSize imagesize = image.size;
-    imagesize.height = 626;
-    imagesize.width = 413;
-    image = [self imageWithImage:image scaledToSize:imagesize];
-    
+//    CGSize imagesize = image.size;
+//    imagesize.height = 626;
+//    imagesize.width = 413;
+//    image = [self imageWithImage:image scaledToSize:imagesize];
+//    
     if (self.pickerController.sourceType == UIImagePickerControllerSourceTypePhotoLibrary) {
         UIStoryboard *story = [UIStoryboard storyboardWithName:@"MKTUploadPhoto" bundle:nil];
         MKTUploadPhotoVC *uploadPhotoVC =  [story instantiateViewControllerWithIdentifier:@"MKTUploadPhotoStoryboard"];
@@ -143,14 +150,14 @@
 }
 
 //对图片尺寸进行压缩
--(UIImage *)imageWithImage:(UIImage*)image scaledToSize:(CGSize)newSize{
-    
-    UIGraphicsBeginImageContext(newSize);
-    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return newImage;
-}
+//-(UIImage *)imageWithImage:(UIImage*)image scaledToSize:(CGSize)newSize{
+//    
+//    UIGraphicsBeginImageContext(newSize);
+//    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+//    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+//    return newImage;
+//}
 
 
 

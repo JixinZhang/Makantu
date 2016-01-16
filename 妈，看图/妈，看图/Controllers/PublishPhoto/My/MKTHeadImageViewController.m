@@ -96,30 +96,15 @@
         if (success) {
             NSLog(@"上传头像返回信息：%@",result);
             if ([result[@"message"] isEqualToString:@"ok"]) {
-                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"上传成功" preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action){
-                    [MKTGlobal shareGlobal].user.avatorImage = self.headImageButton.imageView.image;
-//                    if ([[result[@"image-height"] class] isSubclassOfClass:[NSNumber class]]) {
-//                        NSLog(@"高度是数字");
-//                    }
-                    MKTUploadPictureRequest *request = [[MKTUploadPictureRequest alloc]init];
-                    [request sendUploadPictureRequestWithUserName:[MKTGlobal shareGlobal].user.userName
-                                                         authCode:[MKTGlobal shareGlobal].user.authCode
-                                                      originalUrl:result[@"url"]
-                                                         smallUrl:result[@"url"]
-                                                           height:result[@"image-height"]
-                                                            width:result[@"image-width"]
-                                                           remark:@"asd"
-                                                         delegate:self];
-                    
-                    
-                    
-//                    UIStoryboard *myStoryboard = [UIStoryboard storyboardWithName:@"MKTMy" bundle:[NSBundle mainBundle]];
-//                    MKTMyViewController *myVC = [myStoryboard instantiateViewControllerWithIdentifier:@"MyStoryboard"];
-//                    [self.navigationController popToViewController:myVC animated:YES];
-                }];
-                [alertController addAction:okAction];
-                [self presentViewController:alertController animated:YES completion:nil];
+                
+                [MKTGlobal shareGlobal].user.avatorImage = self.headImageButton.imageView.image;
+                MKTUploadPictureRequest *request = [[MKTUploadPictureRequest alloc]init];
+                
+                //上传头像
+                [request senduploadAvatorRequestWithUser_id:[MKTGlobal shareGlobal].user.user_id
+                                                        Url:result[@"url"]
+                                                   delegate:self];
+                
             }
         }else {
             NSLog(@"上传图像出现错误：%@",error);
@@ -140,8 +125,7 @@
     /**
      *	@brief	方式1 由开发者生成saveKey
      */
-    NSDate *d = [NSDate date];
-    return [NSString stringWithFormat:@"/%@/%ld/%ld/%.0f.jpg",[MKTGlobal shareGlobal].user.userName,[self getYear:d],[self getMonth:d],[[NSDate date] timeIntervalSince1970]];
+    return [NSString stringWithFormat:@"/%@/avator/%.0f.jpg",[MKTGlobal shareGlobal].user.userName,[[NSDate date] timeIntervalSince1970]];
     
     /**
      *	@brief	方式2 由服务器生成saveKey
@@ -150,25 +134,7 @@
     
 }
 
-- (long)getYear:(NSDate *) date{
-    NSDateFormatter *formatter =[[NSDateFormatter alloc] init];
-    [formatter setTimeStyle:NSDateFormatterMediumStyle];
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSInteger unitFlags = NSCalendarUnitYear;
-    NSDateComponents *comps = [calendar components:unitFlags fromDate:date];
-    long year=[comps year];
-    return year;
-}
 
-- (long)getMonth:(NSDate *) date{
-    NSDateFormatter *formatter =[[NSDateFormatter alloc] init];
-    [formatter setTimeStyle:NSDateFormatterMediumStyle];
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSInteger unitFlags = NSCalendarUnitMonth;
-    NSDateComponents *comps = [calendar components:unitFlags fromDate:date];
-    long month = [comps month];
-    return month;
-}
 
 - (void)showErrorMessage:(NSString *)message
 {
@@ -180,6 +146,26 @@
     [alertController addAction:cancelAction];
     
     [self presentViewController:alertController animated:YES completion:nil];
+}
+
+
+
+- (void) UploadPictureRequestSuccess:(MKTUploadPictureRequest *)request picture:(MKTUploadPicture *)picture
+{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"上传成功" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action){
+//        UIStoryboard *myStoryboard = [UIStoryboard storyboardWithName:@"MKTMy" bundle:[NSBundle mainBundle]];
+//        MKTMyViewController *myVC = [myStoryboard instantiateViewControllerWithIdentifier:@"MyStoryboard"];
+//        [self.navigationController popToViewController:myVC animated:YES];
+        
+        [self popoverPresentationController];
+    }];
+    [alertController addAction:okAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+- (void) UploadPictureRequestFailed:(MKTUploadPictureRequest *)request error:(NSError *)error
+{
+    
 }
 
 
