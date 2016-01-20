@@ -32,7 +32,7 @@
     session.requestSerializer = [AFJSONRequestSerializer serializer];
     [session POST:urlString parameters:parameter
           success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-              NSLog(@"上传头像，应用服务器返回信息：%@",responseObject);
+              NSLog(@"上传照片，应用服务器返回信息：%@",[responseObject[@"message"] description]);
               MKTUploadPicture *picture = [[MKTUploadPicture alloc] init];
               picture.statusOfUploadPic = responseObject[@"status"];
               
@@ -56,16 +56,16 @@
 {
     self.delegate = delegate;
     
-    NSString *urlString = @"http://115.28.47.37:8080/pic/avator";
-    //    NSString *urlString = @"http://192.168.1.106:8080/pic/avator";
+    NSString *urlString = @"http://115.28.47.37:8080/user/updateAvator";
+//        NSString *urlString = @"http://192.168.1.102:8080/user/updateAvator";
     
     AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
-    NSDictionary *parameter = [[NSDictionary alloc] initWithObjectsAndKeys:user_id,@"id",Url,@"Url",nil];
+    NSDictionary *parameter = [[NSDictionary alloc] initWithObjectsAndKeys:user_id,@"id",Url,@"avator",nil];
     
 //    session.requestSerializer = [AFJSONRequestSerializer serializer];
     [session POST:urlString parameters:parameter
           success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-              NSLog(@"上传照片，应用服务器返回信息：%@",[responseObject[@"message"] description]);
+              NSLog(@"上传头像，应用服务器返回信息：%@",[responseObject[@"message"] description]);
               MKTUploadPicture *picture = [[MKTUploadPicture alloc] init];
               picture.statusOfUploadPic = responseObject[@"status"];
               

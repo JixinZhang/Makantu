@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		212195428BCAA6C6684865C5 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8235E1432C785999A8CA4C9C /* libPods.a */; };
+		780EA3CD1C4E18F4008BF806 /* MKTBrowsePhotoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 780EA3CC1C4E18F4008BF806 /* MKTBrowsePhotoRequest.m */; };
 		780FE7531C3FD00B00EB9091 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 780FE7521C3FD00B00EB9091 /* main.m */; };
 		780FE75E1C3FD00B00EB9091 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 780FE75D1C3FD00B00EB9091 /* Assets.xcassets */; };
 		780FE7611C3FD00B00EB9091 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 780FE75F1C3FD00B00EB9091 /* LaunchScreen.storyboard */; };
@@ -31,6 +32,12 @@
 		7880D5A41C47B44600E1ACC2 /* MKTUploadPhotoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7880D5A31C47B44600E1ACC2 /* MKTUploadPhotoVC.m */; };
 		7880D5A61C47B55900E1ACC2 /* MKTUploadPhoto.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7880D5A51C47B55900E1ACC2 /* MKTUploadPhoto.storyboard */; };
 		78A7E6C61C48D04A009BB8E0 /* ReplaceUnicode.m in Sources */ = {isa = PBXBuildFile; fileRef = 78A7E6C51C48D04A009BB8E0 /* ReplaceUnicode.m */; };
+		78AFFA731C4E5D4900F86FB9 /* MKTBrowsePhotoRequestParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 78AFFA721C4E5D4900F86FB9 /* MKTBrowsePhotoRequestParser.m */; };
+		78AFFA771C4E619F00F86FB9 /* AoiroSoraLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 78AFFA761C4E619F00F86FB9 /* AoiroSoraLayout.m */; };
+		78AFFA7A1C4E664800F86FB9 /* MKTBrowsePhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 78AFFA791C4E664800F86FB9 /* MKTBrowsePhotoCollectionViewCell.m */; };
+		78AFFA7C1C4E7C4800F86FB9 /* libSDWebImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78AFFA7B1C4E7C4800F86FB9 /* libSDWebImage.a */; };
+		78AFFA7E1C4E7F2500F86FB9 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78AFFA7D1C4E7F2500F86FB9 /* ImageIO.framework */; };
+		78AFFA7F1C4E839600F86FB9 /* libSDWebImage.a in Sources */ = {isa = PBXBuildFile; fileRef = 78AFFA7B1C4E7C4800F86FB9 /* libSDWebImage.a */; };
 		78CF857F1C46999000EFB7C2 /* MKTAuthCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78CF857E1C46999000EFB7C2 /* MKTAuthCodeViewController.m */; };
 		78D2511C1C44C8D400CCDCE3 /* BLMultipartForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 78D2511B1C44C8D400CCDCE3 /* BLMultipartForm.m */; };
 		78D251201C44CE8800CCDCE3 /* MKTUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 78D2511F1C44CE8800CCDCE3 /* MKTUserModel.m */; };
@@ -60,6 +67,8 @@
 
 /* Begin PBXFileReference section */
 		3C1C96A1ED26135769C4144E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		780EA3CB1C4E18F4008BF806 /* MKTBrowsePhotoRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTBrowsePhotoRequest.h; sourceTree = "<group>"; };
+		780EA3CC1C4E18F4008BF806 /* MKTBrowsePhotoRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTBrowsePhotoRequest.m; sourceTree = "<group>"; };
 		780FE74E1C3FD00B00EB9091 /* 妈，看图.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "妈，看图.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		780FE7521C3FD00B00EB9091 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		780FE75D1C3FD00B00EB9091 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
@@ -103,6 +112,14 @@
 		7880D5A51C47B55900E1ACC2 /* MKTUploadPhoto.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MKTUploadPhoto.storyboard; sourceTree = "<group>"; };
 		78A7E6C41C48D04A009BB8E0 /* ReplaceUnicode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReplaceUnicode.h; sourceTree = "<group>"; };
 		78A7E6C51C48D04A009BB8E0 /* ReplaceUnicode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReplaceUnicode.m; sourceTree = "<group>"; };
+		78AFFA711C4E5D4900F86FB9 /* MKTBrowsePhotoRequestParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTBrowsePhotoRequestParser.h; sourceTree = "<group>"; };
+		78AFFA721C4E5D4900F86FB9 /* MKTBrowsePhotoRequestParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTBrowsePhotoRequestParser.m; sourceTree = "<group>"; };
+		78AFFA751C4E619F00F86FB9 /* AoiroSoraLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AoiroSoraLayout.h; sourceTree = "<group>"; };
+		78AFFA761C4E619F00F86FB9 /* AoiroSoraLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AoiroSoraLayout.m; sourceTree = "<group>"; };
+		78AFFA781C4E664800F86FB9 /* MKTBrowsePhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTBrowsePhotoCollectionViewCell.h; sourceTree = "<group>"; };
+		78AFFA791C4E664800F86FB9 /* MKTBrowsePhotoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTBrowsePhotoCollectionViewCell.m; sourceTree = "<group>"; };
+		78AFFA7B1C4E7C4800F86FB9 /* libSDWebImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSDWebImage.a; path = "Pods/../build/Debug-iphoneos/libSDWebImage.a"; sourceTree = "<group>"; };
+		78AFFA7D1C4E7F2500F86FB9 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		78CF857D1C46999000EFB7C2 /* MKTAuthCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTAuthCodeViewController.h; sourceTree = "<group>"; };
 		78CF857E1C46999000EFB7C2 /* MKTAuthCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTAuthCodeViewController.m; sourceTree = "<group>"; };
 		78D2511A1C44C8D400CCDCE3 /* BLMultipartForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLMultipartForm.h; sourceTree = "<group>"; };
@@ -128,6 +145,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78AFFA7E1C4E7F2500F86FB9 /* ImageIO.framework in Frameworks */,
+				78AFFA7C1C4E7C4800F86FB9 /* libSDWebImage.a in Frameworks */,
 				212195428BCAA6C6684865C5 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,6 +168,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		780EA3CA1C4E18C0008BF806 /* GetPicture */ = {
+			isa = PBXGroup;
+			children = (
+				780EA3CB1C4E18F4008BF806 /* MKTBrowsePhotoRequest.h */,
+				780EA3CC1C4E18F4008BF806 /* MKTBrowsePhotoRequest.m */,
+			);
+			path = GetPicture;
+			sourceTree = "<group>";
+		};
 		780FE7451C3FD00B00EB9091 = {
 			isa = PBXGroup;
 			children = (
@@ -264,6 +292,7 @@
 		780FE78E1C3FD21200EB9091 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				78AFFA741C4E619F00F86FB9 /* AoiroSoraLayout */,
 				78D57F3E1C49004C005DFA1C /* UpYun */,
 			);
 			path = Library;
@@ -345,6 +374,8 @@
 			children = (
 				786598681C465538003C7679 /* MKTPublicPhotoVC.h */,
 				786598691C465538003C7679 /* MKTPublicPhotoVC.m */,
+				78AFFA781C4E664800F86FB9 /* MKTBrowsePhotoCollectionViewCell.h */,
+				78AFFA791C4E664800F86FB9 /* MKTBrowsePhotoCollectionViewCell.m */,
 			);
 			path = PublicPhoto;
 			sourceTree = "<group>";
@@ -367,6 +398,24 @@
 			path = Global;
 			sourceTree = "<group>";
 		};
+		78AFFA701C4E5D2300F86FB9 /* BrowsePhotoParser */ = {
+			isa = PBXGroup;
+			children = (
+				78AFFA711C4E5D4900F86FB9 /* MKTBrowsePhotoRequestParser.h */,
+				78AFFA721C4E5D4900F86FB9 /* MKTBrowsePhotoRequestParser.m */,
+			);
+			path = BrowsePhotoParser;
+			sourceTree = "<group>";
+		};
+		78AFFA741C4E619F00F86FB9 /* AoiroSoraLayout */ = {
+			isa = PBXGroup;
+			children = (
+				78AFFA751C4E619F00F86FB9 /* AoiroSoraLayout.h */,
+				78AFFA761C4E619F00F86FB9 /* AoiroSoraLayout.m */,
+			);
+			path = AoiroSoraLayout;
+			sourceTree = "<group>";
+		};
 		78BAFA391C43A99A00F7C631 /* BrowsePhoto */ = {
 			isa = PBXGroup;
 			children = (
@@ -377,6 +426,7 @@
 		78D251141C44C58D00CCDCE3 /* Parsers */ = {
 			isa = PBXGroup;
 			children = (
+				78AFFA701C4E5D2300F86FB9 /* BrowsePhotoParser */,
 				78D251251C44D0E100CCDCE3 /* LoginAndRegisterParser */,
 				78A7E6C41C48D04A009BB8E0 /* ReplaceUnicode.h */,
 				78A7E6C51C48D04A009BB8E0 /* ReplaceUnicode.m */,
@@ -387,6 +437,7 @@
 		78D251151C44C58D00CCDCE3 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
+				780EA3CA1C4E18C0008BF806 /* GetPicture */,
 				78D57F461C493496005DFA1C /* UploadPicture */,
 				78D251211C44D01500CCDCE3 /* LoginAndRequest */,
 			);
@@ -476,6 +527,8 @@
 		CF53C6F3A5A96FEF031CEDBA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				78AFFA7D1C4E7F2500F86FB9 /* ImageIO.framework */,
+				78AFFA7B1C4E7C4800F86FB9 /* libSDWebImage.a */,
 				8235E1432C785999A8CA4C9C /* libPods.a */,
 			);
 			name = Frameworks;
@@ -666,10 +719,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78AFFA7F1C4E839600F86FB9 /* libSDWebImage.a in Sources */,
 				7865984B1C462D54003C7679 /* MKTUserModel+Register.m in Sources */,
 				786598711C465911003C7679 /* MKTMyViewController.m in Sources */,
 				7880D5A41C47B44600E1ACC2 /* MKTUploadPhotoVC.m in Sources */,
+				780EA3CD1C4E18F4008BF806 /* MKTBrowsePhotoRequest.m in Sources */,
 				78D57F411C49004C005DFA1C /* UpYun.m in Sources */,
+				78AFFA7A1C4E664800F86FB9 /* MKTBrowsePhotoCollectionViewCell.m in Sources */,
 				787FC55D1C4402240049A618 /* MKTBrowseOrPublicVC.m in Sources */,
 				78D251241C44D01500CCDCE3 /* MKTLoginRequest.m in Sources */,
 				7865986C1C465538003C7679 /* MKTRegisterViewController.m in Sources */,
@@ -682,10 +738,12 @@
 				78A7E6C61C48D04A009BB8E0 /* ReplaceUnicode.m in Sources */,
 				7880D5A11C4780FC00E1ACC2 /* MKTGlobal.m in Sources */,
 				786598451C45F736003C7679 /* MKTRegisterRequestParser.m in Sources */,
+				78AFFA771C4E619F00F86FB9 /* AoiroSoraLayout.m in Sources */,
 				78D251201C44CE8800CCDCE3 /* MKTUserModel.m in Sources */,
 				78D251281C44D0FF00CCDCE3 /* MKTLoginRequestParser.m in Sources */,
 				7880D59D1C47522900E1ACC2 /* MKTHeadImageViewController.m in Sources */,
 				7865986E1C465538003C7679 /* MKTPublicPhotoVC.m in Sources */,
+				78AFFA731C4E5D4900F86FB9 /* MKTBrowsePhotoRequestParser.m in Sources */,
 				786598421C45F218003C7679 /* MKTRegisterRequest.m in Sources */,
 				78CF857F1C46999000EFB7C2 /* MKTAuthCodeViewController.m in Sources */,
 				780FE7531C3FD00B00EB9091 /* main.m in Sources */,
@@ -825,6 +883,27 @@
 				INFOPLIST_FILE = "妈，看图/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+					"-l\"AFNetworking\"",
+					"-l\"SDWebImage\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"$(TARGET_BUILD_DIR)/libPods.a",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.zjixin.----";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -841,6 +920,27 @@
 				INFOPLIST_FILE = "妈，看图/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+					"-l\"AFNetworking\"",
+					"-l\"SDWebImage\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"$(TARGET_BUILD_DIR)/libPods.a",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.zjixin.----";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

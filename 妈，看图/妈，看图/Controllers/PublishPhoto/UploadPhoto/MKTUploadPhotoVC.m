@@ -110,7 +110,6 @@
             NSLog(@"上传照片返回信息：%@",result);
             if ([result[@"message"] isEqualToString:@"ok"]) {
                 
-                [MKTGlobal shareGlobal].user.avatorImage = self.uploadImageView.image;
                 MKTUploadPictureRequest *request = [[MKTUploadPictureRequest alloc]init];
                 
                 //上传照片
