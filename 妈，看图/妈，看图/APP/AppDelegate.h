@@ -15,6 +15,8 @@
 
 - (void)loadLoginView;
 
+- (void)loadBrowsePhotoView;
+
 - (void)loadPublishPhotoView:(UIViewController *) viewController;
 
 - (void)loadPickerControllerSourceTypeCamera;

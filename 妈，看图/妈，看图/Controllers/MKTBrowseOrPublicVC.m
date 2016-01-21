@@ -9,8 +9,8 @@
 #import "MKTBrowseOrPublicVC.h"
 #import "MKTLoginViewController.h"
 #import "AppDelegate.h"
-
-@interface MKTBrowseOrPublicVC ()
+#import "MKTGlobal.h"
+@interface MKTBrowseOrPublicVC ()<UIAlertViewDelegate>
 
 @end
 
@@ -65,6 +65,34 @@
 - (void)browsePhotoButtonClicked: (id)sender
 {
     NSLog(@"点击浏览照片功能，进行页面跳转");
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"请输入授权码" preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"授权码";
+    }];
+    
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UITextField *inputAuthCodeTextField = alertController.textFields.firstObject;
+        NSString *inputAuthCode = inputAuthCodeTextField.text;
+        if ([inputAuthCode length]) {
+            [MKTGlobal shareGlobal].inputAuthCode = inputAuthCode;
+            AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+            [appDelegate loadBrowsePhotoView];
+        }else {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"授权码不能为空" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
+            [alert addAction:okAction];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+        
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    
+    [alertController addAction:okAction];
+    [alertController addAction:cancelAction];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+
 
 }
 

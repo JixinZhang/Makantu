@@ -14,7 +14,8 @@
 
 @property (nonatomic,strong) MKTUserModel *user;
 @property (nonatomic,strong) MKTUploadPicture *picture;
-
+@property (nonatomic,strong) NSString *widthOfItem;
+@property (nonatomic,strong) NSString *inputAuthCode;
 + (MKTGlobal *)shareGlobal;
 
 @end

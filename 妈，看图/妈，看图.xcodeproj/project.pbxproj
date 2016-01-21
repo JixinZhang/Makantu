@@ -38,6 +38,7 @@
 		78AFFA7C1C4E7C4800F86FB9 /* libSDWebImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78AFFA7B1C4E7C4800F86FB9 /* libSDWebImage.a */; };
 		78AFFA7E1C4E7F2500F86FB9 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78AFFA7D1C4E7F2500F86FB9 /* ImageIO.framework */; };
 		78AFFA7F1C4E839600F86FB9 /* libSDWebImage.a in Sources */ = {isa = PBXBuildFile; fileRef = 78AFFA7B1C4E7C4800F86FB9 /* libSDWebImage.a */; };
+		78BC1DF81C50DC48000966A9 /* MKTBrowsePhotoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 78BC1DF71C50DC48000966A9 /* MKTBrowsePhotoVC.m */; };
 		78CF857F1C46999000EFB7C2 /* MKTAuthCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78CF857E1C46999000EFB7C2 /* MKTAuthCodeViewController.m */; };
 		78D2511C1C44C8D400CCDCE3 /* BLMultipartForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 78D2511B1C44C8D400CCDCE3 /* BLMultipartForm.m */; };
 		78D251201C44CE8800CCDCE3 /* MKTUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 78D2511F1C44CE8800CCDCE3 /* MKTUserModel.m */; };
@@ -120,6 +121,8 @@
 		78AFFA791C4E664800F86FB9 /* MKTBrowsePhotoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTBrowsePhotoCollectionViewCell.m; sourceTree = "<group>"; };
 		78AFFA7B1C4E7C4800F86FB9 /* libSDWebImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSDWebImage.a; path = "Pods/../build/Debug-iphoneos/libSDWebImage.a"; sourceTree = "<group>"; };
 		78AFFA7D1C4E7F2500F86FB9 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		78BC1DF61C50DC48000966A9 /* MKTBrowsePhotoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTBrowsePhotoVC.h; sourceTree = "<group>"; };
+		78BC1DF71C50DC48000966A9 /* MKTBrowsePhotoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTBrowsePhotoVC.m; sourceTree = "<group>"; };
 		78CF857D1C46999000EFB7C2 /* MKTAuthCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKTAuthCodeViewController.h; sourceTree = "<group>"; };
 		78CF857E1C46999000EFB7C2 /* MKTAuthCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKTAuthCodeViewController.m; sourceTree = "<group>"; };
 		78D2511A1C44C8D400CCDCE3 /* BLMultipartForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLMultipartForm.h; sourceTree = "<group>"; };
@@ -419,6 +422,8 @@
 		78BAFA391C43A99A00F7C631 /* BrowsePhoto */ = {
 			isa = PBXGroup;
 			children = (
+				78BC1DF61C50DC48000966A9 /* MKTBrowsePhotoVC.h */,
+				78BC1DF71C50DC48000966A9 /* MKTBrowsePhotoVC.m */,
 			);
 			path = BrowsePhoto;
 			sourceTree = "<group>";
@@ -727,6 +732,7 @@
 				78D57F411C49004C005DFA1C /* UpYun.m in Sources */,
 				78AFFA7A1C4E664800F86FB9 /* MKTBrowsePhotoCollectionViewCell.m in Sources */,
 				787FC55D1C4402240049A618 /* MKTBrowseOrPublicVC.m in Sources */,
+				78BC1DF81C50DC48000966A9 /* MKTBrowsePhotoVC.m in Sources */,
 				78D251241C44D01500CCDCE3 /* MKTLoginRequest.m in Sources */,
 				7865986C1C465538003C7679 /* MKTRegisterViewController.m in Sources */,
 				78D57F491C4934B7005DFA1C /* MKTUploadPictureRequest.m in Sources */,

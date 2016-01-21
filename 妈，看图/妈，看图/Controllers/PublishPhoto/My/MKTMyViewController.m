@@ -9,6 +9,7 @@
 #import "MKTMyViewController.h"
 #import "MKTHeadImageViewController.h"
 #import "MKTGlobal.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 @interface MKTMyViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @end
@@ -26,6 +27,12 @@
     self.headImageView.layer.cornerRadius = 30.0;
     self.headImageView.layer.masksToBounds = 30.0;
     
+    NSString *urlString = [MKTGlobal shareGlobal].user.avatorURL;
+    urlString = [NSString stringWithFormat:@"http://%@",urlString];
+    NSURL *url = [urlString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    [self.headImageView sd_setImageWithURL:url completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        [MKTGlobal shareGlobal].user.avatorImage = image;
+    }];
     self.userNameLabel.text = [MKTGlobal shareGlobal].user.userName;
     
     // Uncomment the following line to preserve selection between presentations.

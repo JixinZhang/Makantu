@@ -20,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.AuthCodeTextField.text = [MKTGlobal shareGlobal].user.authCode;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -80,10 +80,17 @@
     AFHTTPSessionManager *sessionManager = [[AFHTTPSessionManager alloc] init];
     [sessionManager POST:urlString parameters:parmeter
                  success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"修改AuthCode：返回信息为%@",[responseObject[@"message"] description]);
-        [MKTGlobal shareGlobal].user.authCode = self.AuthCodeTextField.text;
-        [self showErrorMessage:[responseObject[@"message"] description]];
+                     NSLog(@"修改AuthCode：返回信息为%@",[responseObject[@"message"] description]);
+                     [MKTGlobal shareGlobal].user.authCode = self.AuthCodeTextField.text;
+                     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:[responseObject[@"message"] description] preferredStyle:UIAlertControllerStyleAlert];
+                     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                         [self.navigationController popViewControllerAnimated:YES];
+                     }];
+                     [alertController addAction:okAction];
+                     [self presentViewController:alertController animated:YES completion:nil];
+
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
         NSLog(@"修改AuthCode时失败,原因%@",error);
     }];
 

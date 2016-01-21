@@ -1,12 +1,12 @@
 //
-//  MKTPublicPhotoVC.m
+//  MKTBrowsePhotoVC.m
 //  妈，看图
 //
-//  Created by ZhangBob on 1/13/16.
+//  Created by ZhangBob on 1/21/16.
 //  Copyright © 2016 JixinZhang. All rights reserved.
 //
 
-#import "MKTPublicPhotoVC.h"
+#import "MKTBrowsePhotoVC.h"
 #import "MKTBrowsePhotoRequest.h"
 #import "MKTGlobal.h"
 #import "AoiroSoraLayout.h"
@@ -15,14 +15,14 @@
 #import "UIImageVIew+WebCache.h"
 #import "MKTUploadPicture.h"
 
-@interface MKTPublicPhotoVC ()<MKTBrowsePhotoRequestDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,AoiroSoraLayoutDelegate>
+@interface MKTBrowsePhotoVC ()<MKTBrowsePhotoRequestDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,AoiroSoraLayoutDelegate>
 
 @property (nonatomic, strong) NSMutableArray *pictureArray;
 @property (nonatomic, strong) UICollectionView *collectionView;
 
 @end
 
-@implementation MKTPublicPhotoVC
+@implementation MKTBrowsePhotoVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,7 +30,7 @@
     
     
     MKTBrowsePhotoRequest *request = [[MKTBrowsePhotoRequest alloc] init];
-    [request sendBrowsePhotoRequestWithUserName:[MKTGlobal shareGlobal].user.userName delegate:self];
+    [request sendBrowsePhotoRequestWithAuthCode:[MKTGlobal shareGlobal].inputAuthCode delegate:self];
 }
 
 
@@ -58,7 +58,7 @@
     CGFloat height = [pictureInfo.height floatValue];
     CGFloat widthOfItem = [[MKTGlobal shareGlobal].widthOfItem floatValue];
     return  (height/width*widthOfItem);
-
+    
 }
 //确认section
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -100,8 +100,40 @@
 
 - (void)browsePhotoRequestSuccess:(MKTBrowsePhotoRequest *)request array:(NSMutableArray *)array
 {
-    self.pictureArray = array;
-    [self createCollectionView];
+    if (array) {
+        self.pictureArray = array;
+        [self createCollectionView];
+    }else {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"该授权码无效，请重新输入" preferredStyle:UIAlertControllerStyleAlert];
+        
+        [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+            textField.placeholder = @"授权码";
+        }];
+        
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            UITextField *inputAuthCodeTextField = alertController.textFields.firstObject;
+            NSString *inputAuthCode = inputAuthCodeTextField.text;
+            if ([inputAuthCode length]) {
+                [MKTGlobal shareGlobal].inputAuthCode = inputAuthCode;
+                MKTBrowsePhotoRequest *request = [[MKTBrowsePhotoRequest alloc] init];
+                [request sendBrowsePhotoRequestWithAuthCode:[MKTGlobal shareGlobal].inputAuthCode delegate:self];
+            }else {
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"授权码不能为空" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
+                [alert addAction:okAction];
+                [self presentViewController:alert animated:YES completion:nil];
+            }
+            
+        }];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+        
+        [alertController addAction:okAction];
+        [alertController addAction:cancelAction];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
+
+    }
+    
 }
 
 - (void)browsePhotoRequestFailed:(MKTBrowsePhotoRequest *)requset error:(NSError *)error
@@ -114,3 +146,4 @@
     // Dispose of any resources that can be recreated.
 }
 @end
+

@@ -22,7 +22,7 @@
     AFHTTPSessionManager *sessionManager = [AFHTTPSessionManager manager];
     NSDictionary *parameter = [NSDictionary dictionaryWithObjectsAndKeys:userName,@"userName", nil];
     [sessionManager GET:urlString parameters:parameter success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
-        NSLog(@"浏览照片请求返回信息：%@",responseObject);
+//        NSLog(@"浏览照片请求返回信息：%@",responseObject);
         MKTBrowsePhotoRequestParser *parser = [[MKTBrowsePhotoRequestParser alloc] init];
         if ([_delegate respondsToSelector:@selector(browsePhotoRequestSuccess:array:)]) {
             [_delegate browsePhotoRequestSuccess:self array:[parser parserArray:responseObject]];

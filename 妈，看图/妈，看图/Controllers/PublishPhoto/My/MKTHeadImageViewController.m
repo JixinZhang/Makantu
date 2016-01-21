@@ -154,11 +154,8 @@
 {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"上传成功" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action){
-//        UIStoryboard *myStoryboard = [UIStoryboard storyboardWithName:@"MKTMy" bundle:[NSBundle mainBundle]];
-//        MKTMyViewController *myVC = [myStoryboard instantiateViewControllerWithIdentifier:@"MyStoryboard"];
-//        [self.navigationController popToViewController:myVC animated:YES];
-        
-        [self popoverPresentationController];
+        [self.navigationController popViewControllerAnimated:YES];
+
     }];
     [alertController addAction:okAction];
     [self presentViewController:alertController animated:YES completion:nil];

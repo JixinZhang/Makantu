@@ -12,7 +12,7 @@
 #import "MKTPublicPhotoVC.h"
 #import "MKTMyViewController.h"
 #import "MKTUploadPhotoVC.h"
-
+#import "MKTBrowsePhotoVC.h"
 @interface AppDelegate ()<UINavigationBarDelegate,UIAlertViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property (nonatomic, strong) MKTLoginViewController *loginVC;
@@ -28,6 +28,12 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MKTLoginAndRegister" bundle:[NSBundle mainBundle]];
     self.loginVC = [storyboard instantiateViewControllerWithIdentifier:@"LoginStoryboard"];
     self.window.rootViewController = self.loginVC;
+}
+
+- (void)loadBrowsePhotoView
+{
+    MKTBrowsePhotoVC *browsePhotoVC = [[MKTBrowsePhotoVC alloc] init];
+    self.window.rootViewController = browsePhotoVC;
 }
 
 - (void)loadPublishPhotoView:(UIViewController *)viewController

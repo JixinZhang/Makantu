@@ -3,7 +3,7 @@
 
 
 #import "AoiroSoraLayout.h"
-
+#import "MKTGlobal.h"
 @implementation AoiroSoraLayout {
     //装行高
     NSMutableArray *_columHeightAttay;
@@ -46,6 +46,7 @@
         CGFloat totalItemWidth = totalWidth - _edgeInsets.left - _edgeInsets.right - _interSpace*(_colNum-1);
         //每个item
         CGFloat itemwidth = totalItemWidth/_colNum;
+    [MKTGlobal shareGlobal].widthOfItem = [NSString stringWithFormat:@"%f",itemwidth];
         //拿到每个分区所有item的个数
         NSInteger totalItems = [self.collectionView numberOfItemsInSection:0];
         for (int i = 0; i < totalItems; i++) {
