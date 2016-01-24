@@ -14,6 +14,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "UIImageVIew+WebCache.h"
 #import "MKTUploadPicture.h"
+#import "MKTShowPhotoVC.h"
 
 @interface MKTPublicPhotoVC ()<MKTBrowsePhotoRequestDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,AoiroSoraLayoutDelegate>
 
@@ -93,6 +94,11 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"选中了%ld",(long)indexPath.row);
+    MKTShowPhotoVC *showPhotoVC = [[MKTShowPhotoVC alloc] init];
+    showPhotoVC.picInfoArray = self.pictureArray;
+    showPhotoVC.indexFromBrowsePhotoVC = indexPath.row;
+    //    [self.navigationController pushViewController:showPhotoVC animated:YES];
+    [self presentViewController:showPhotoVC animated:YES completion:nil];
 }
 
 

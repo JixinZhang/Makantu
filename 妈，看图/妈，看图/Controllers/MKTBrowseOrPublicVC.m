@@ -11,7 +11,9 @@
 #import "AppDelegate.h"
 #import "MKTGlobal.h"
 @interface MKTBrowseOrPublicVC ()<UIAlertViewDelegate>
-
+{
+    UIAlertAction *okAlertAction;
+}
 @end
 
 @implementation MKTBrowseOrPublicVC
@@ -69,26 +71,28 @@
     
     [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
         textField.placeholder = @"授权码";
+        textField.keyboardType = UIKeyboardTypeNumberPad;
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(isTextFieldEmpty:) name:UITextFieldTextDidChangeNotification object:textField];
     }];
     
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         UITextField *inputAuthCodeTextField = alertController.textFields.firstObject;
         NSString *inputAuthCode = inputAuthCodeTextField.text;
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:alertController.textFields.firstObject];
         if ([inputAuthCode length]) {
             [MKTGlobal shareGlobal].inputAuthCode = inputAuthCode;
             AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
             [appDelegate loadBrowsePhotoView];
-        }else {
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"授权码不能为空" preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
-            [alert addAction:okAction];
-            [self presentViewController:alert animated:YES completion:nil];
         }
         
     }];
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    okAction.enabled = false;
+    okAlertAction = okAction;
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:alertController.textFields.firstObject];
+    }];
     
-    [alertController addAction:okAction];
+    [alertController addAction:okAlertAction];
     [alertController addAction:cancelAction];
     
     [self presentViewController:alertController animated:YES completion:nil];
@@ -96,6 +100,15 @@
 
 }
 
+- (void)isTextFieldEmpty:(NSNotification *)notification
+{
+    UITextField *textField = notification.object;
+    if (textField.text.length) {
+        okAlertAction.enabled = true;
+    }else {
+        okAlertAction.enabled = false;
+    }
+}
 
 
 #pragma mark - publicPhotoButtonClicked
