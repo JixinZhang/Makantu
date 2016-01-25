@@ -32,14 +32,14 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor blackColor];
     
-    UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(8, 8, 40, 30)];
+    UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(8, 20, 40, 30)];
     [backButton setTitle:@"返回" forState:UIControlStateNormal];
     [backButton addTarget:self action:@selector(backButtonClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:backButton];
     backButton.hidden = NO;
     
-    _numberLabel = [[UILabel alloc] initWithFrame:CGRectMake(130, 8, 60, 30)];
-    _numberLabel.text = [NSString stringWithFormat:@"%d/%d",self.indexFromBrowsePhotoVC+1,self.picInfoArray.count];
+    _numberLabel = [[UILabel alloc] initWithFrame:CGRectMake(130, 20, 60, 30)];
+    _numberLabel.text = [NSString stringWithFormat:@"%d/%ld",self.indexFromBrowsePhotoVC+1,self.picInfoArray.count];
     _numberLabel.textColor = [UIColor whiteColor];
     [self.view addSubview:_numberLabel];
     
