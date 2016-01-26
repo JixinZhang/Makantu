@@ -29,7 +29,8 @@
     
     NSString *urlString = [MKTGlobal shareGlobal].user.avatorURL;
     urlString = [NSString stringWithFormat:@"http://%@",urlString];
-    NSURL *url = [urlString stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    urlString = [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    NSURL *url = [NSURL URLWithString:urlString];
     [self.headImageView sd_setImageWithURL:url completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         [MKTGlobal shareGlobal].user.avatorImage = image;
     }];

@@ -33,12 +33,14 @@
 - (void)loadBrowsePhotoView
 {
     MKTBrowsePhotoVC *browsePhotoVC = [[MKTBrowsePhotoVC alloc] init];
+    browsePhotoVC.tag = 1;
     self.window.rootViewController = browsePhotoVC;
 }
 
 - (void)loadPublishPhotoView:(UIViewController *)viewController
 {
     MKTPublicPhotoVC *publicPhotoVC = [[MKTPublicPhotoVC alloc] init];
+    publicPhotoVC.tag = 1;
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:publicPhotoVC];
     
     nav.tabBarItem.title = @"已共享";

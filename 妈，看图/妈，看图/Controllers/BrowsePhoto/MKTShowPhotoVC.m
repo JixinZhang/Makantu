@@ -39,7 +39,7 @@
     backButton.hidden = NO;
     
     _numberLabel = [[UILabel alloc] initWithFrame:CGRectMake(130, 20, 60, 30)];
-    _numberLabel.text = [NSString stringWithFormat:@"%d/%ld",self.indexFromBrowsePhotoVC+1,self.picInfoArray.count];
+    _numberLabel.text = [NSString stringWithFormat:@"%d/%lu",self.indexFromBrowsePhotoVC+1,(unsigned long)self.picInfoArray.count];
     _numberLabel.textColor = [UIColor whiteColor];
     [self.view addSubview:_numberLabel];
     
@@ -101,7 +101,7 @@
         
         NSString *urlString = pictureInfo.originalUrl;
         urlString = [NSString stringWithFormat:@"http://%@",urlString];
-        urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        urlString = [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
         NSURL *url = [NSURL URLWithString:urlString];
         [imageView sd_setImageWithURL:url];
         [view addSubview:imageView];
@@ -125,7 +125,7 @@
         
         NSString *urlString = pictureInfo.originalUrl;
         urlString = [NSString stringWithFormat:@"http://%@",urlString];
-        urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        urlString = [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
         NSURL *url = [NSURL URLWithString:urlString];
         [imageView sd_setImageWithURL:url];
         [view addSubview:imageView];
@@ -150,7 +150,7 @@
         
         NSString *urlString = pictureInfo.originalUrl;
         urlString = [NSString stringWithFormat:@"http://%@",urlString];
-        urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        urlString = [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
         NSURL *url = [NSURL URLWithString:urlString];
         [imageView sd_setImageWithURL:url];
         [view addSubview:imageView];
@@ -163,7 +163,7 @@
 {
     _pageControl.currentPage = scrollView.contentOffset.x / scrollViewWidth;
     int i = _pageControl.currentPage;
-    _numberLabel.text = [NSString stringWithFormat:@"%d/%d",i+1,self.picInfoArray.count];
+    _numberLabel.text = [NSString stringWithFormat:@"%d/%lu",i+1,(unsigned long)self.picInfoArray.count];
     if (i>=1 && i<=self.picInfoArray.count-2) {
         [self loadThreePicture:i];
     }
