@@ -47,7 +47,7 @@
     self.publicPhotoButton = [[UIButton alloc] initWithFrame:CGRectMake((screenWidth-buttonRadius)/2.0, screenHeight/2.0+15, buttonRadius, buttonRadius)];
     self.publicPhotoButton.layer.cornerRadius = buttonRadius/2.0;
     self.publicPhotoButton.layer.masksToBounds = buttonRadius/2.0;
-    [self.publicPhotoButton setImage:[UIImage imageNamed:@"backgroundImage.jpg"] forState:UIControlStateNormal];
+    [self.publicPhotoButton setImage:[UIImage imageNamed:@"fa.png"] forState:UIControlStateNormal];
     [self.publicPhotoButton addTarget:self
                                action:@selector(publicPhotoButtonClicked:)
                      forControlEvents:UIControlEventTouchUpInside];

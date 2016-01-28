@@ -9,6 +9,7 @@
 #import "MKTShowPhotoVC.h"
 #import "MKTUploadPicture.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "MBProgressHUD.h"
 
 #define screenWidth [UIScreen mainScreen].bounds.size.width
 #define screenHeight [UIScreen mainScreen].bounds.size.height
@@ -60,7 +61,15 @@
     
     _index = self.indexFromBrowsePhotoVC;
     [_scrollView setContentOffset:CGPointMake(scrollViewWidth * _index, 0) animated:NO];
-    [self firstLoadAction:_index];
+    
+    //加载原图
+    if (self.picInfoArray.count <= 3) {
+        [self loadAllPicture:self.picInfoArray.count];
+    }else {
+        [self firstLoadAction:_index];
+    }
+    
+    
     _pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(10, _scrollView.frame.origin.y + scrollViewHeight, scrollViewWidth, 37)];
     _pageControl.numberOfPages = self.picInfoArray.count;
     _pageControl.currentPage = _index;
@@ -68,6 +77,39 @@
 
 
 
+}
+
+//如果self.picInfoArray.count<=3,加载所有照片
+- (void)loadAllPicture:(unsigned int)index
+{
+    for (int i = 0; i < index; i++) {
+        UIView *view = [[UIView alloc] initWithFrame:CGRectMake(i * scrollViewWidth , 0, scrollViewWidth, scrollViewHeight)];
+        view.backgroundColor = [UIColor blackColor];
+        [_contentView addSubview:view];
+        //获取图片相关信息
+        MKTUploadPicture *pictureInfo = [self.picInfoArray objectAtIndex:i];
+        CGFloat widthOfPic = [pictureInfo.width floatValue];
+        CGFloat heigthOfPic = [pictureInfo.height floatValue];
+        
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, (scrollViewWidth-scrollViewWidth*heigthOfPic/widthOfPic) , scrollViewWidth, scrollViewWidth*heigthOfPic/widthOfPic)];
+        imageView.backgroundColor = [UIColor clearColor];
+        
+        //加载原图之前的placeholder
+        UIImageView *placeHolder = [[UIImageView alloc] init];
+        NSString *placeHolderUrlString = pictureInfo.smallUrl;
+        placeHolderUrlString = [NSString stringWithFormat:@"http://%@",placeHolderUrlString];
+        placeHolderUrlString = [placeHolderUrlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+        NSURL *placeHolderUrl = [NSURL URLWithString:placeHolderUrlString];
+        [placeHolder sd_setImageWithURL:placeHolderUrl];
+        
+        //加载原图
+        NSString *urlString = pictureInfo.originalUrl;
+        urlString = [NSString stringWithFormat:@"http://%@",urlString];
+        urlString = [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+        NSURL *url = [NSURL URLWithString:urlString];
+        [imageView sd_setImageWithURL:url
+                     placeholderImage:placeHolder.image];
+        [view addSubview:imageView];    }
 }
 
 - (void)firstLoadAction:(unsigned int)index
@@ -98,12 +140,20 @@
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, (scrollViewWidth-scrollViewWidth*heigthOfPic/widthOfPic) , scrollViewWidth, scrollViewWidth*heigthOfPic/widthOfPic)];
         imageView.backgroundColor = [UIColor clearColor];
         
+        //加载原图之前的placeholder
+        UIImageView *placeHolder = [[UIImageView alloc] init];
+        NSString *placeHolderUrlString = pictureInfo.smallUrl;
+        placeHolderUrlString = [NSString stringWithFormat:@"http://%@",placeHolderUrlString];
+        placeHolderUrlString = [placeHolderUrlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+        NSURL *placeHolderUrl = [NSURL URLWithString:placeHolderUrlString];
+        [placeHolder sd_setImageWithURL:placeHolderUrl];
         
+        //加载原图
         NSString *urlString = pictureInfo.originalUrl;
         urlString = [NSString stringWithFormat:@"http://%@",urlString];
         urlString = [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
         NSURL *url = [NSURL URLWithString:urlString];
-        [imageView sd_setImageWithURL:url];
+        [imageView sd_setImageWithURL:url placeholderImage:placeHolder.image];
         [view addSubview:imageView];
     }
 }
@@ -123,11 +173,20 @@
         imageView.backgroundColor = [UIColor clearColor];
         
         
+        //加载原图之前的placeholder
+        UIImageView *placeHolder = [[UIImageView alloc] init];
+        NSString *placeHolderUrlString = pictureInfo.smallUrl;
+        placeHolderUrlString = [NSString stringWithFormat:@"http://%@",placeHolderUrlString];
+        placeHolderUrlString = [placeHolderUrlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+        NSURL *placeHolderUrl = [NSURL URLWithString:placeHolderUrlString];
+        [placeHolder sd_setImageWithURL:placeHolderUrl];
+        
+        //加载原图
         NSString *urlString = pictureInfo.originalUrl;
         urlString = [NSString stringWithFormat:@"http://%@",urlString];
         urlString = [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
         NSURL *url = [NSURL URLWithString:urlString];
-        [imageView sd_setImageWithURL:url];
+        [imageView sd_setImageWithURL:url placeholderImage:placeHolder.image];
         [view addSubview:imageView];
     }
 }
@@ -148,11 +207,20 @@
         imageView.backgroundColor = [UIColor clearColor];
         
         
+        //加载原图之前的placeholder
+        UIImageView *placeHolder = [[UIImageView alloc] init];
+        NSString *placeHolderUrlString = pictureInfo.smallUrl;
+        placeHolderUrlString = [NSString stringWithFormat:@"http://%@",placeHolderUrlString];
+        placeHolderUrlString = [placeHolderUrlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+        NSURL *placeHolderUrl = [NSURL URLWithString:placeHolderUrlString];
+        [placeHolder sd_setImageWithURL:placeHolderUrl];
+        
+        //加载原图
         NSString *urlString = pictureInfo.originalUrl;
         urlString = [NSString stringWithFormat:@"http://%@",urlString];
         urlString = [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
         NSURL *url = [NSURL URLWithString:urlString];
-        [imageView sd_setImageWithURL:url];
+        [imageView sd_setImageWithURL:url placeholderImage:placeHolder.image];
         [view addSubview:imageView];
     }
 }
@@ -175,6 +243,21 @@
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+
+-(void)showHUD:(NSString *)title isDim:(BOOL)isDim
+{
+    self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    self.hud.dimBackground = isDim;
+    self.hud.labelText = title;
+}
+
+
+-(void)hideHUD
+{
+    [self.hud hide:YES afterDelay:0.3];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

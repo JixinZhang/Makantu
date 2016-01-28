@@ -19,9 +19,7 @@
         if ([[data class]  isSubclassOfClass:[NSDictionary class]]) {
             
             id user_id = [data valueForKey:@"id"];
-            if ([[user_id class] isSubclassOfClass:[NSString class]]) {
-                user.user_id = user_id;
-            }
+            user.user_id = user_id;
             
             id userName = [data valueForKey:@"userName"];
             if ([[userName class] isSubclassOfClass:[NSString class]]) {

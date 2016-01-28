@@ -134,6 +134,9 @@
         [_collectionView.mj_header endRefreshing];
         [self hideHUD];
     }else {
+        [_collectionView.mj_header endRefreshing];
+        [self hideHUD];
+
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"您尚未上传图片" preferredStyle:UIAlertControllerStyleAlert];
         
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定"
@@ -147,6 +150,7 @@
         [alertController addAction:cancelAction];
         
         [self presentViewController:alertController animated:YES completion:nil];
+
 
     }
 }

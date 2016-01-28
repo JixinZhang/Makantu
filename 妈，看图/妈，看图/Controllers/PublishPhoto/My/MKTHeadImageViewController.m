@@ -87,37 +87,41 @@
 
 - (IBAction)changeHeadImageButtonClicked:(id)sender
 {
-    NSLog(@"更换成功");
-    
-    UpYun *uploader = [[UpYun alloc] initWithBucket:@"makantu" andPassCode:@"qLD6lsR7dYayp3f0NCruvqy98ps="];
-    NSData *uploadImageData = UIImageJPEGRepresentation(self.headImageButton.imageView.image, 0.5);
-    
-    [uploader uploadFileWithData:uploadImageData useSaveKey:[self getSaveKey] completion:^(BOOL success, NSDictionary *result, NSError *error) {
-        if (success) {
-            NSLog(@"上传头像返回信息：%@",result);
-            if ([result[@"message"] isEqualToString:@"ok"]) {
-                
-                [MKTGlobal shareGlobal].user.avatorImage = self.headImageButton.imageView.image;
-                MKTUploadPictureRequest *request = [[MKTUploadPictureRequest alloc]init];
-                
-                //上传头像
-                [request senduploadAvatorRequestWithUser_id:[MKTGlobal shareGlobal].user.user_id
-                                                        Url:result[@"url"]
-                                                   delegate:self];
-                
+    if (!self.headImageButton.imageView.image) {
+        [self showErrorMessage:@"未选中照片"];
+    }else {
+        UpYun *uploader = [[UpYun alloc] initWithBucket:@"makantu" andPassCode:@"qLD6lsR7dYayp3f0NCruvqy98ps="];
+        NSData *uploadImageData = UIImageJPEGRepresentation(self.headImageButton.imageView.image, 0.5);
+        
+        [uploader uploadFileWithData:uploadImageData useSaveKey:[self getSaveKey] completion:^(BOOL success, NSDictionary *result, NSError *error) {
+            if (success) {
+                NSLog(@"上传头像返回信息：%@",result);
+                if ([result[@"message"] isEqualToString:@"ok"]) {
+                    
+                    [MKTGlobal shareGlobal].user.avatorImage = self.headImageButton.imageView.image;
+                    MKTUploadPictureRequest *request = [[MKTUploadPictureRequest alloc]init];
+                    
+                    //上传头像
+                    [request senduploadAvatorRequestWithUser_id:[MKTGlobal shareGlobal].user.user_id
+                                                            Url:result[@"url"]
+                                                       delegate:self];
+                    
+                }
+            }else {
+                NSLog(@"上传图像出现错误：%@",error);
             }
-        }else {
-            NSLog(@"上传图像出现错误：%@",error);
-        }
-    }];
+        }];
+        
+        uploader.progressBlock=^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite){
+            self.progressView.progressViewStyle = UIProgressViewStyleDefault;
+            self.progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2.0-100, self.headImageButton.frame.origin.y + 200 + 8, 200, 5)];
+            [self.view addSubview:self.progressView];
+            [self.progressView setProgress:bytesWritten];
+            
+        };
+    }
     
-    uploader.progressBlock=^(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite){
-        self.progressView.progressViewStyle = UIProgressViewStyleDefault;
-        self.progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(self.view.frame.size.width/2.0-100, self.headImageButton.frame.origin.y + 200 + 8, 200, 5)];
-        [self.view addSubview:self.progressView];
-        [self.progressView setProgress:bytesWritten];
-
-    };
+    
     
 }
 

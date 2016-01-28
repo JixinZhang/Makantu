@@ -10,6 +10,7 @@
 #import "MKTRegisterRequest.h"
 #import "MKTUserModel+Register.h"
 #import "AppDelegate.h"
+#import "MKTGlobal.h"
 
 @interface MKTRegisterViewController ()<UITextFieldDelegate,UIAlertViewDelegate,MKTRegisterRequestDelegate>
 
@@ -107,6 +108,7 @@
 {
     if ([user.registerReturnStatusCode  isEqualToString: @"1"]) {
         NSLog(@"注册成功，正在进行页面跳转");
+        [MKTGlobal shareGlobal].user = user;
         AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
         [appDelegate loadPublishPhotoView:self];
     }else {
