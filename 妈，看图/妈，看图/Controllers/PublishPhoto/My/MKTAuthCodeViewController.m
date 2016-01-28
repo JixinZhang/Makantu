@@ -20,6 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.AuthCodeTextField.keyboardType = UIKeyboardTypeNumberPad;
     self.AuthCodeTextField.text = [MKTGlobal shareGlobal].user.authCode;
 }
 

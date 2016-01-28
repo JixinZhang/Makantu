@@ -89,9 +89,9 @@
         //获取图片相关信息
         MKTUploadPicture *pictureInfo = [self.picInfoArray objectAtIndex:i];
         CGFloat widthOfPic = [pictureInfo.width floatValue];
-        CGFloat heigthOfPic = [pictureInfo.height floatValue];
+        CGFloat heightOfPic = [pictureInfo.height floatValue];
         
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, (scrollViewWidth-scrollViewWidth*heigthOfPic/widthOfPic) , scrollViewWidth, scrollViewWidth*heigthOfPic/widthOfPic)];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, (scrollViewWidth-scrollViewWidth*heightOfPic/widthOfPic) , scrollViewWidth, scrollViewWidth*heightOfPic/widthOfPic)];
         imageView.backgroundColor = [UIColor clearColor];
         
         //加载原图之前的placeholder
@@ -135,9 +135,9 @@
         //获取图片相关信息
         MKTUploadPicture *pictureInfo = [self.picInfoArray objectAtIndex:i];
         CGFloat widthOfPic = [pictureInfo.width floatValue];
-        CGFloat heigthOfPic = [pictureInfo.height floatValue];
+        CGFloat heightOfPic = [pictureInfo.height floatValue];
         
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, (scrollViewWidth-scrollViewWidth*heigthOfPic/widthOfPic) , scrollViewWidth, scrollViewWidth*heigthOfPic/widthOfPic)];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, (scrollViewWidth-scrollViewWidth*heightOfPic/widthOfPic) , scrollViewWidth, scrollViewWidth*heightOfPic/widthOfPic)];
         imageView.backgroundColor = [UIColor clearColor];
         
         //加载原图之前的placeholder
@@ -167,9 +167,9 @@
         //获取图片相关信息
         MKTUploadPicture *pictureInfo = [self.picInfoArray objectAtIndex:i];
         CGFloat widthOfPic = [pictureInfo.width floatValue];
-        CGFloat heigthOfPic = [pictureInfo.height floatValue];
+        CGFloat heightOfPic = [pictureInfo.height floatValue];
         
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, (scrollViewWidth-scrollViewWidth*heigthOfPic/widthOfPic) , scrollViewWidth, scrollViewWidth*heigthOfPic/widthOfPic)];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, (scrollViewWidth-scrollViewWidth*heightOfPic/widthOfPic) , scrollViewWidth, scrollViewWidth*heightOfPic/widthOfPic)];
         imageView.backgroundColor = [UIColor clearColor];
         
         
@@ -201,9 +201,9 @@
         //获取图片相关信息
         MKTUploadPicture *pictureInfo = [self.picInfoArray objectAtIndex:i];
         CGFloat widthOfPic = [pictureInfo.width floatValue];
-        CGFloat heigthOfPic = [pictureInfo.height floatValue];
+        CGFloat heightOfPic = [pictureInfo.height floatValue];
         
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, (scrollViewWidth-scrollViewWidth*heigthOfPic/widthOfPic) , scrollViewWidth, scrollViewWidth*heigthOfPic/widthOfPic)];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, (scrollViewWidth-scrollViewWidth*heightOfPic/widthOfPic) , scrollViewWidth, scrollViewWidth*heightOfPic/widthOfPic)];
         imageView.backgroundColor = [UIColor clearColor];
         
         

@@ -17,8 +17,11 @@
 #import "MKTShowPhotoVC.h"
 #import "MBProgressHUD.h"
 #import "MJRefresh.h"
+#import "AppDelegate.h"
 @interface MKTBrowsePhotoVC ()<MKTBrowsePhotoRequestDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,AoiroSoraLayoutDelegate>
-
+{
+    UIAlertAction *okAlertAction;
+}
 @property (nonatomic, strong) NSMutableArray *pictureArray;
 @property (nonatomic, strong) UICollectionView *collectionView;
 
@@ -157,30 +160,35 @@
         [_collectionView.mj_header endRefreshing];
         [self hideHUD];
     }else {
+        [self hideHUD];
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"该授权码无效，请重新输入" preferredStyle:UIAlertControllerStyleAlert];
         
         [alertController addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
             textField.placeholder = @"授权码";
+            textField.keyboardType = UIKeyboardTypeNumberPad;
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(isTextFieldEmpty:) name:UITextFieldTextDidChangeNotification object:textField];
         }];
         
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             UITextField *inputAuthCodeTextField = alertController.textFields.firstObject;
             NSString *inputAuthCode = inputAuthCodeTextField.text;
+            [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:alertController.textFields.firstObject];
             if ([inputAuthCode length]) {
                 [MKTGlobal shareGlobal].inputAuthCode = inputAuthCode;
                 MKTBrowsePhotoRequest *request = [[MKTBrowsePhotoRequest alloc] init];
                 [request sendBrowsePhotoRequestWithAuthCode:[MKTGlobal shareGlobal].inputAuthCode delegate:self];
-            }else {
-                UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"授权码不能为空" preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
-                [alert addAction:okAction];
-                [self presentViewController:alert animated:YES completion:nil];
             }
             
         }];
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+        okAction.enabled = false;
+        okAlertAction = okAction;
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:alertController.textFields.firstObject];
+            AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+            [appDelegate loadBrowseOrPublicVC];
+        }];
         
-        [alertController addAction:okAction];
+        [alertController addAction:okAlertAction];
         [alertController addAction:cancelAction];
         
         [self presentViewController:alertController animated:YES completion:nil];
@@ -192,6 +200,16 @@
 - (void)browsePhotoRequestFailed:(MKTBrowsePhotoRequest *)requset error:(NSError *)error
 {
     
+}
+
+- (void)isTextFieldEmpty:(NSNotification *)notification
+{
+    UITextField *textField = notification.object;
+    if (textField.text.length) {
+        okAlertAction.enabled = true;
+    }else {
+        okAlertAction.enabled = false;
+    }
 }
 
      

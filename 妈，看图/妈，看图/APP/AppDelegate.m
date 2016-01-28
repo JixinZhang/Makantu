@@ -23,6 +23,12 @@
 
 @implementation AppDelegate
 
+- (void)loadBrowseOrPublicVC
+{
+    MKTBrowseOrPublicVC *browseOrPublicVC = [[MKTBrowseOrPublicVC alloc] init];
+    self.window.rootViewController = browseOrPublicVC;
+}
+
 - (void)loadLoginView
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MKTLoginAndRegister" bundle:[NSBundle mainBundle]];
