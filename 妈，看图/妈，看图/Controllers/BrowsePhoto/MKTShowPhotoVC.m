@@ -39,7 +39,7 @@
     [self.view addSubview:backButton];
     backButton.hidden = NO;
     
-    _numberLabel = [[UILabel alloc] initWithFrame:CGRectMake(130, 20, 60, 30)];
+    _numberLabel = [[UILabel alloc] initWithFrame:CGRectMake(screenWidth/2.0-30, 20, 60, 30)];
     _numberLabel.text = [NSString stringWithFormat:@"%d/%lu",self.indexFromBrowsePhotoVC+1,(unsigned long)self.picInfoArray.count];
     _numberLabel.textColor = [UIColor whiteColor];
     [self.view addSubview:_numberLabel];
