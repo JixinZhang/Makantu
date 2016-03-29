@@ -17,6 +17,7 @@
 #import "MKTShowPhotoVC.h"
 #import "MBProgressHUD.h"
 #import "MJRefresh.h"
+#import "AppDelegate.h"
 
 @interface MKTPublicPhotoVC ()<MKTBrowsePhotoRequestDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,AoiroSoraLayoutDelegate,UIAlertViewDelegate>
 
@@ -40,6 +41,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"已共享";
+    UIBarButtonItem *homeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"homepage"] style:UIBarButtonItemStylePlain target:self action:@selector(backToHomePage)];
+    self.navigationItem.rightBarButtonItem = homeButton;
     self.pictureArray = [[NSMutableArray alloc] init];
     _collectionView = [self collectionView];
     _collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
@@ -177,6 +181,14 @@
 -(void)hideHUD
 {
     [self.hud hide:YES afterDelay:0.3];
+}
+
+
+#pragma mark - back to home page
+- (void)backToHomePage
+{
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    [appDelegate loadBrowseOrPublicVC];
 }
 
 

@@ -23,7 +23,10 @@
     UIAlertAction *okAlertAction;
 }
 @property (nonatomic, strong) NSMutableArray *pictureArray;
+@property (nonatomic, strong) NSString *titleString;
 @property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) UINavigationBar *navigationBar;
+@property (nonatomic, strong) UINavigationItem *navigationBarTitle;
 
 @end
 
@@ -42,6 +45,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.navigationBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0, 20, [[UIScreen mainScreen] bounds].size.width, 44)];
+    self.navigationBar.backgroundColor = [UIColor clearColor];
+//    self.navigationBar.tintColor = [UIColor blackColor];
+    self.navigationBarTitle = [[UINavigationItem alloc] initWithTitle:@"共享"];
+    
+    UIBarButtonItem *homeButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"homepage"] style:UIBarButtonItemStylePlain target:self action:@selector(backToHomePage)];
+    self.navigationBarTitle.rightBarButtonItem = homeButton;
+    
+    [self.navigationBar pushNavigationItem:self.navigationBarTitle animated:YES];
+    
+    
+    
+    [self.view addSubview:self.navigationBar];
+    
     self.pictureArray = [[NSMutableArray alloc] init];
     _collectionView = [self collectionView];
     _collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadData)];
@@ -73,23 +91,6 @@
     }
     return _collectionView;
 }
-
-//- (void)createCollectionView
-//{
-//    AoiroSoraLayout *layout = [[AoiroSoraLayout alloc] init];
-//    layout.interSpace = 2;
-//    layout.edgeInsets = UIEdgeInsetsMake(2, 2, 2, 2);
-//    layout.colNum = 3;
-//    layout.delegate = self;
-//    
-//    _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height) collectionViewLayout:layout];
-//    _collectionView.delegate = self;
-//    _collectionView.dataSource = self;
-//    _collectionView.backgroundColor = [UIColor whiteColor];
-//    [_collectionView registerClass:[MKTBrowsePhotoCollectionViewCell class] forCellWithReuseIdentifier:@"MKTBrowsePhotoCollectionViewCell"];
-//    [self.view addSubview:_collectionView];
-//}
-
 
 
 
@@ -156,6 +157,9 @@
 {
     if (array) {
         self.pictureArray = array;
+        MKTUploadPicture *pictureMode = self.pictureArray[0];
+        self.titleString = pictureMode.userName;
+        self.navigationBarTitle.title = self.titleString;
         [_collectionView reloadData];
         [_collectionView.mj_header endRefreshing];
         [self hideHUD];
@@ -212,7 +216,8 @@
     }
 }
 
-     
+
+#pragma mark - MBProgressHUD
  -(void)showHUD:(NSString *)title isDim:(BOOL)isDim
 {
     self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -232,7 +237,12 @@
     [self.hud hide:YES afterDelay:0.3];
 }
 
-     
+#pragma mark - back to home page
+- (void)backToHomePage
+{
+    AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    [appDelegate loadBrowseOrPublicVC];
+}
 
 
 - (void)didReceiveMemoryWarning {

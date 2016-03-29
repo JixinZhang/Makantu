@@ -15,7 +15,7 @@
 @property (nonatomic, copy)NSString *height;
 @property (nonatomic, copy)NSString *width;
 @property (nonatomic, copy)NSString *remark;
-
+@property (nonatomic, copy)NSString *userName;
 @property (nonatomic, copy)NSNumber *statusOfUploadPic;
 
 @end
