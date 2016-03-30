@@ -13,6 +13,10 @@
 #import "MKTGlobal.h"
 
 @interface MKTLoginViewController ()<UITextFieldDelegate,UIAlertViewDelegate,MKTLoginRequestDelegate>
+{
+    NSString *localUserName;
+    NSString *localPassword;
+}
 @property (nonatomic,strong) MKTLoginRequest *loginRequest;
 
 @end
@@ -21,7 +25,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     //将登录按钮设置圆角矩形
     self.loginButton.layer.cornerRadius = 10.0;
     self.loginButton.clipsToBounds = YES;
@@ -34,6 +37,11 @@
     self.passwordTextField.secureTextEntry = YES;
     self.userNameTextField.keyboardType = UIKeyboardTypeASCIICapable;
     
+}
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self readLocalUserInformation];
     
 }
 
@@ -42,7 +50,30 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - read local user information
+- (void)readLocalUserInformation
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    localUserName = [defaults stringForKey:@"userName"];
+    localPassword = [defaults stringForKey:@"password"];
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:@"是否使用本地账号" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"是" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        self.userNameTextField.text = localUserName;
+        self.passwordTextField.text = localPassword;
+    }];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"否" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    
+    [alertController addAction:okAction];
+    [alertController addAction:cancelAction];
 
+    if (localUserName) {
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
+}
 
 #pragma mark - 关闭键盘
 //通过代理来让键盘上的return实现关闭键盘
@@ -108,6 +139,11 @@
         [appDelegate loadPublishPhotoView:self];
         
         [MKTGlobal shareGlobal].user = user;
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:user.userName forKey:@"userName"];
+        [defaults setObject:self.passwordTextField.text forKey:@"password"];
+        [defaults synchronize];
     }else {
 //        NSLog(@"登录失败:%@",user.loginReturnMessage);
         [self showErrorMessage:user.loginReturnMessage];
