@@ -25,6 +25,7 @@
     unsigned int _index;
     UIPageControl *_pageControl;
     UILabel *_numberLabel;
+    unsigned int _scrollIndex;
 }
 @end
 
@@ -225,15 +226,51 @@
     }
 }
 
+- (void)loadIndexPicture:(unsigned int)index
+{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(index * scrollViewWidth , 0, scrollViewWidth, scrollViewHeight)];
+    view.backgroundColor = [UIColor blackColor];
+    [_contentView addSubview:view];
+    //获取图片相关信息
+    MKTUploadPicture *pictureInfo = [self.picInfoArray objectAtIndex:index];
+    CGFloat widthOfPic = [pictureInfo.width floatValue];
+    CGFloat heightOfPic = [pictureInfo.height floatValue];
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, (scrollViewWidth-scrollViewWidth*heightOfPic/widthOfPic) , scrollViewWidth, scrollViewWidth*heightOfPic/widthOfPic)];
+    imageView.backgroundColor = [UIColor clearColor];
+    
+    
+    //加载原图之前的placeholder
+    UIImageView *placeHolder = [[UIImageView alloc] init];
+    NSString *placeHolderUrlString = pictureInfo.smallUrl;
+    placeHolderUrlString = [NSString stringWithFormat:@"http://%@",placeHolderUrlString];
+    placeHolderUrlString = [placeHolderUrlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    NSURL *placeHolderUrl = [NSURL URLWithString:placeHolderUrlString];
+    [placeHolder sd_setImageWithURL:placeHolderUrl];
+    
+    //加载原图
+    NSString *urlString = pictureInfo.originalUrl;
+    urlString = [NSString stringWithFormat:@"http://%@",urlString];
+    urlString = [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    NSURL *url = [NSURL URLWithString:urlString];
+    [imageView sd_setImageWithURL:url placeholderImage:placeHolder.image];
+    [view addSubview:imageView];
 
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    _pageControl.currentPage = scrollView.contentOffset.x / scrollViewWidth;
+    _scrollIndex = _pageControl.currentPage;
+    NSLog(@"当前页数:%u",_scrollIndex);
+}
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    _pageControl.currentPage = scrollView.contentOffset.x / scrollViewWidth;
-    int i = _pageControl.currentPage;
-    _numberLabel.text = [NSString stringWithFormat:@"%d/%lu",i+1,(unsigned long)self.picInfoArray.count];
-    if (i>=1 && i<=self.picInfoArray.count-2) {
-        [self loadThreePicture:i];
+    _numberLabel.text = [NSString stringWithFormat:@"%d/%lu",_scrollIndex+1,(unsigned long)self.picInfoArray.count];
+    if (_scrollIndex>=0 && _scrollIndex<=self.picInfoArray.count-1) {
+        [self loadIndexPicture:_scrollIndex];
+        NSLog(@"加载第%u张图片",_scrollIndex);
     }
 }
 
